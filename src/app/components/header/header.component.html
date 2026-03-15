@@ -1,0 +1,127 @@
+<header
+  class="sticky top-0 z-20 px-6 py-3 backdrop-blur bg-background border-b border-slate-500/40 relative"
+>
+  <div class="max-w-[960px] mx-auto flex flex-col gap-3">
+    <div class="flex items-center justify-between gap-4">
+      <div class="flex flex-col">
+        <span class="font-semibold">{{ hero.name }}</span>
+        <span class="text-xs sm:text-sm text-muted">{{ hero.role }}</span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <nav class="hidden md:flex gap-3">
+          @for (item of navigationItems; track item.section) {
+            <a
+              class="text-sm px-3 py-1 rounded-full text-muted hover:bg-blue-900/50 hover:text-text transition-colors whitespace-nowrap"
+              [href]="'#' + item.section"
+            >
+              {{ item.label }}
+            </a>
+          }
+        </nav>
+
+        <button
+          type="button"
+          class="inline-flex items-center gap-2 rounded-full border border-muted px-3 py-1 text-xs uppercase tracking-wide text-muted hover:border-primary hover:text-primary transition-colors"
+          (click)="triggerLanguageChange()"
+          [attr.aria-label]="languageButtonAria"
+        >
+          {{ languageButtonLabel }}
+        </button>
+
+        <div class="hidden md:block">
+          <span
+            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium text-emerald-500 bg-emerald-500/15"
+          >
+            {{ hero.availability }}
+          </span>
+        </div>
+
+        <button
+          type="button"
+          class="inline-flex md:hidden items-center justify-center rounded-md p-2 text-muted hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-primary"
+          (click)="toggleMenu()"
+          [attr.aria-expanded]="isMenuOpen"
+          [attr.aria-label]="isMenuOpen ? menuCloseLabel : menuOpenLabel"
+        >
+          <span class="sr-only">
+            {{ isMenuOpen ? menuCloseLabel : menuOpenLabel }}
+          </span>
+          <span class="relative inline-flex h-5 w-5">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              class="absolute inset-0 h-5 w-5 transition-all duration-150 ease-out"
+              [class.opacity-0]="isMenuOpen"
+              [class.scale-75]="isMenuOpen"
+              [class.opacity-100]="!isMenuOpen"
+              [class.scale-100]="!isMenuOpen"
+              aria-hidden="true"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              class="absolute inset-0 h-5 w-5 transition-all duration-150 ease-out"
+              [class.opacity-100]="isMenuOpen"
+              [class.scale-100]="isMenuOpen"
+              [class.opacity-0]="!isMenuOpen"
+              [class.scale-75]="!isMenuOpen"
+              aria-hidden="true"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-width="2"
+                d="M6 6l12 12M6 18L18 6"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  @if (isMenuOpen) {
+    <div
+      class="md:hidden absolute inset-x-0 top-full bg-background border-b border-slate-700 pt-3 pb-4 shadow-lg animate-menu-down"
+    >
+      <div class="px-6 space-y-3">
+        <nav class="flex flex-col items-center gap-2">
+          @for (item of navigationItems; track item.section) {
+            <a
+              class="text-sm px-3 py-1 rounded-full text-muted hover:bg-blue-900/50 hover:text-text transition-colors whitespace-nowrap"
+              [href]="'#' + item.section"
+              (click)="closeMenu()"
+            >
+              {{ item.label }}
+            </a>
+          }
+        </nav>
+
+        <div class="flex flex-col gap-3 items-center">
+          <button
+            type="button"
+            class="inline-flex items-center gap-2 rounded-full border border-muted px-3 py-1 text-xs uppercase tracking-wide text-muted hover:border-primary hover:text-primary transition-colors"
+            (click)="triggerLanguageChange()"
+            [attr.aria-label]="languageButtonAria"
+          >
+            {{ languageButtonLabel }}
+          </button>
+
+          <span
+            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium text-emerald-500 bg-emerald-500/15"
+          >
+            {{ hero.availability }}
+          </span>
+        </div>
+      </div>
+    </div>
+  }
+</header>

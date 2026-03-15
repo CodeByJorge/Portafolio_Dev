@@ -1,0 +1,64 @@
+<div
+  class="min-h-screen bg-background text-text font-sans"
+  [ngStyle]="themeStyle"
+>
+  <app-header
+    [hero]="localeContent.hero"
+    [navigationItems]="localeContent.navigation.items"
+    [languageButtonLabel]="localeCopy.languageButtonLabel"
+    [languageButtonAria]="localeCopy.languageButtonAria"
+    [menuOpenLabel]="localeCopy.menuOpenLabel"
+    [menuCloseLabel]="localeCopy.menuCloseLabel"
+    (languageChange)="toggleLanguage()"
+  ></app-header>
+
+  <main class="max-w-[960px] mx-auto px-6">
+    @for (section of sections; track section) {
+      <section
+        [id]="section"
+        class="py-12 border-b border-slate-500/40 last:border-b-0"
+      >
+        @if (section === 'hero') {
+          <app-hero
+            [hero]="localeContent.hero"
+            [socials]="localeContent.socials"
+            [downloadLabel]="localeCopy.downloadCvLabel"
+            [resumes]="localeContent.hero.resumes ?? []"
+            [resumeDropdownLabel]="localeCopy.resumeDropdownLabel"
+          />
+        }
+
+        @if (section === 'experience') {
+          <app-experience
+            [items]="localeContent.experience"
+            [title]="localeCopy.experienceTitle"
+          />
+        }
+
+        @if (section === 'projects') {
+          <app-projects
+            [items]="localeContent.projects"
+            [title]="localeCopy.projectsTitle"
+            [viewProjectLabel]="localeCopy.viewProject"
+            [viewCodeLabel]="localeCopy.viewCode"
+          />
+        }
+
+        @if (section === 'about') {
+          <app-about [about]="localeContent.about" />
+        }
+
+        @if (section === 'contact') {
+          <app-contact
+            [contact]="localeContent.contact"
+            [socials]="localeContent.socials"
+            [title]="localeCopy.contactTitle"
+            [emailLabel]="localeCopy.contactEmailLabel"
+            [locationLabel]="localeCopy.contactLocationLabel"
+            [socialsLabel]="localeCopy.contactSocialsLabel"
+          />
+        }
+      </section>
+    }
+  </main>
+</div>

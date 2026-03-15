@@ -1,0 +1,59 @@
+<h2 class="text-[1.35rem] font-semibold mb-6">
+  {{ title }}
+</h2>
+
+<div class="grid grid-cols-1 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] gap-6">
+  <div>
+    <p class="text-xs font-semibold uppercase tracking-[0.08em] text-muted mb-1">
+      {{ emailLabel }}
+    </p>
+    <a
+      class="inline-flex items-center gap-2 px-3 py-2 rounded-full border border-primary text-text text-xs no-underline"
+      [href]="'mailto:' + contact.email"
+    >
+      <img
+        src="/icons/gmail.svg"
+        alt="Icono de email"
+        class="h-4 w-4"
+      />
+      <span>{{ contact.email }}</span>
+    </a>
+
+    @if (contact.location) {
+      <p
+        class="mt-4 text-xs font-semibold uppercase tracking-[0.08em] text-muted mb-1"
+      >
+        {{ locationLabel }}
+      </p>
+      <p class="text-[0.95rem] text-text">
+        {{ contact.location }}
+      </p>
+    }
+  </div>
+
+  @if (socials.length) {
+    <div class="flex flex-col gap-2">
+      <p class="text-xs font-semibold uppercase tracking-[0.08em] text-muted mb-1">
+        {{ socialsLabel }}
+      </p>
+
+      @for (social of socials; track social) {
+        <a
+          class="inline-flex items-center gap-2 text-xs text-text no-underline hover:text-primary"
+          [href]="social.url"
+          target="_blank"
+          rel="noreferrer"
+        >
+          @if (getSocialIcon(social.id); as socialIcon) {
+            <img
+              class="h-4 w-4"
+              [src]="socialIcon"
+              [alt]="social.label + ' icono'"
+            />
+          }
+          <span>{{ social.label }}</span>
+        </a>
+      }
+    </div>
+  }
+</div>

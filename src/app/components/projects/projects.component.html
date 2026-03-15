@@ -1,0 +1,66 @@
+<h2 class="text-[1.35rem] font-semibold mb-6">
+  {{ title }}
+</h2>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+  @for (project of items; track project) {
+    <article
+      class="p-5 rounded-2xl bg-surface border border-muted flex flex-col gap-3"
+    >
+      <header>
+        <h3 class="text-base font-semibold">
+          {{ project.name }}
+        </h3>
+      </header>
+
+      <p class="text-sm text-text">
+        {{ project.description }}
+      </p>
+
+      @if (project.technologies.length) {
+        <ul class="flex flex-wrap gap-2 text-xs text-muted">
+          @for (tech of project.technologies; track tech.name) {
+            <li
+              class="inline-flex items-center gap-1.5 rounded-full border border-muted bg-surface/60 px-3 py-1 text-[0.7rem]"
+            >
+              @if (tech.icon) {
+                <img
+                  class="h-3.5 w-3.5"
+                  [src]="tech.icon"
+                  [alt]="tech.name + ' icono'"
+                />
+              }
+              <span>{{ tech.name }}</span>
+            </li>
+          }
+        </ul>
+      }
+
+      @if (project.link || project.repository) {
+        <div class="mt-auto flex flex-wrap gap-2">
+          @if (project.link) {
+            <a
+              class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-primary text-background no-underline"
+              [href]="project.link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {{ viewProjectLabel }}
+            </a>
+          }
+
+          @if (project.repository) {
+            <a
+              class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-transparent text-primary border border-primary no-underline"
+              [href]="project.repository"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {{ viewCodeLabel }}
+            </a>
+          }
+        </div>
+      }
+    </article>
+  }
+</div>
