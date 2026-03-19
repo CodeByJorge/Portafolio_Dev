@@ -119,7 +119,12 @@ dist
 .vscode-test
 
 # Static folders
-public/
+public/*
+!public/*.pdf
+!public/favicon.ico
+!public/download.webp
+!public/icons/
+!public/*.png
 
 # IDEs and editors
 .idea/
