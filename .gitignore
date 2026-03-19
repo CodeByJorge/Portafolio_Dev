@@ -43,6 +43,9 @@ coverage
 # Optional npm cache directory
 .npm
 
+# Angular build cache
+.angular/
+
 # Optional eslint cache
 .eslintcache
 

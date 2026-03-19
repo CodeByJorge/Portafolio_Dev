@@ -236,7 +236,7 @@ export const portfolioConfig: PortfolioConfig = {
         role: 'Fullstack Web Developer',
         location: 'Lausanne, Switzerland',
         availability: 'Available for new opportunities',
-        avatarUrl: '/image.png',
+        avatarUrl: '/profile.webp',
         resumeUrl: '/resume-en.pdf',
         resumes: [
           { label: 'CV English', url: '/resume-en.pdf', language: 'en' },
@@ -303,7 +303,7 @@ export const portfolioConfig: PortfolioConfig = {
         role: 'Développeur Web Fullstack',
         location: 'Lausanne, Switzerland',
         availability: 'Ouvert aux nouvelles opportunités',
-        avatarUrl: '/image.png',
+        avatarUrl: '/profile.webp',
         resumeUrl: '/resume-fr.pdf',
         resumes: [
           { label: 'CV Français', url: '/resume-fr.pdf', language: 'fr' },
