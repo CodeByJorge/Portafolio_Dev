@@ -14,4 +14,5 @@ export class ProjectsComponent {
   @Input() title = 'Projects';
   @Input() viewProjectLabel = 'View project';
   @Input() viewCodeLabel = 'Code';
+  @Input() projectStatusLabel = 'In development';
 }

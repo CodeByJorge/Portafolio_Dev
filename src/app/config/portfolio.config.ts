@@ -56,6 +56,7 @@ export interface ProjectItem {
   link?: string;
   repository?: string;
   technologies: Technology[];
+  status?: 'development' | 'production';
 }
 
 export interface ContactConfig {
@@ -102,6 +103,7 @@ export interface LocaleCopy {
   contactSocialsLabel: string;
   viewProject: string;
   viewCode: string;
+  projectStatusLabel: string;
   menuOpenLabel: string;
   menuCloseLabel: string;
   languageButtonLabel: string;
@@ -214,8 +216,8 @@ const frenchExperience: ExperienceItem[] = [
 export const portfolioConfig: PortfolioConfig = {
   defaultLanguage: 'en',
   siteTitle: {
-    en: 'Jorge Yariel García Caraballoso · Fullstack Web Developer',
-    fr: 'Jorge Yariel García Caraballoso · Développeur Web Fullstack',
+    en: 'JGdev — Portfolio',
+    fr: 'JGdev — Portfolio',
   },
   sections: {
     order: ['hero', 'experience', 'projects', 'about', 'contact'],
@@ -232,7 +234,7 @@ export const portfolioConfig: PortfolioConfig = {
   locales: {
     en: {
       hero: {
-        name: 'Jorge Yariel García Caraballoso',
+        name: 'Jorge García',
         role: 'Fullstack Web Developer',
         location: 'Lausanne, Switzerland',
         availability: 'Available for new opportunities',
@@ -244,36 +246,31 @@ export const portfolioConfig: PortfolioConfig = {
           { label: 'CV Español', url: '/resume-es.pdf', language: 'es' },
         ],
         summary: `
-            Fullstack developer with production experience designing scalable web applications for events,
-            hospitality, and enterprise management. Skilled in modern frontend frameworks (Angular, React)
-            and resilient backend ecosystems (Spring Boot, Symfony). I design efficient REST APIs,
-            optimize relational databases, and reduce load times through advanced performance techniques.
-            I care deeply about delivering maintainable, user-centric, high-quality solutions.
+            Fullstack developer with experience building complete web applications, from robust APIs to polished user-facing interfaces.
+            Focused on writing maintainable code, optimizing performance, and delivering solutions that actually work in production.
           `,
       },
       about: {
         title: 'About me',
         body: `
-          I’m a web developer passionate about using technology to build meaningful experiences.
-          My focus is on full-stack development with modern frameworks and solid engineering practices.
+          I'm a fullstack developer who combines technical rigor with a keen eye for detail. Passionate about clean architecture and scalable solutions, I thrive in agile environments where continuous learning is part of the job. Highly adaptable and proactive, I take ownership of my work end-to-end — from backend APIs to polished user interfaces.
         `,
       },
       experience: englishExperience,
       projects: [
         {
-          name: 'Portfolio demo',
+          name: 'EcommerceStore',
           description:
-            'An example landing page to showcase experience, projects, and contact details.',
-          link: 'https://example.com',
-          technologies: sharedTechnologies,
-        },
-        {
-          name: 'Sample project',
-          description:
-            'Replace this entry with one of your own projects by updating the description, link, and tech stack.',
+            'Full e-commerce platform for fashion products with admin dashboard, shopping cart, wishlist, real-time search, and JWT-based authentication with user/admin roles.',
+          repository: 'https://github.com/CodeByJorge/TFG',
+          status: 'development',
           technologies: [
-            { name: 'Technology 1' },
-            { name: 'Technology 2' },
+            { name: 'React', icon: '/icons/react.svg' },
+            { name: 'Spring Boot', icon: '/icons/springboot.svg' },
+            { name: 'MySQL', icon: '/icons/mysql.svg' },
+            { name: 'Tailwind CSS', icon: '/icons/tailwind.svg' },
+            { name: 'JWT', icon: '/icons/typescript.svg' },
+            { name: 'Vite', icon: '/icons/typescript.svg' },
           ],
         },
       ],
@@ -299,7 +296,7 @@ export const portfolioConfig: PortfolioConfig = {
     },
     fr: {
       hero: {
-        name: 'Jorge Yariel García Caraballoso',
+        name: 'Jorge García',
         role: 'Développeur Web Fullstack',
         location: 'Lausanne, Switzerland',
         availability: 'Ouvert aux nouvelles opportunités',
@@ -311,36 +308,31 @@ export const portfolioConfig: PortfolioConfig = {
           { label: 'CV Español', url: '/resume-es.pdf', language: 'es' },
         ],
         summary: `
-            Développeur full-stack ayant travaillé en production sur des applications web scalables
-            pour l’événementiel, l’hôtellerie et la gestion d’entreprise.
-            Maîtrise des frameworks modernes (Angular, React) et des environnements backend solides (Spring Boot, Symfony).
-            Je conçois des APIs REST efficaces, optimise les bases de données relationnelles et accélère les temps de chargement.
-            Je m’attache à livrer des solutions maintenables et centrées utilisateur.
+            Développeur full-stack ayant de l'expérience dans le développement d'applications web complètes, des APIs robustes aux interfaces utilisateur soignées.
+            Focalisé sur l'écriture de code maintenable, l'optimisation des performances et la livraison de solutions qui fonctionnent réellement en production.
           `,
       },
       about: {
         title: 'À propos de moi',
         body: `
-          Je suis un développeur web passionné par la création de solutions significatives.
-          Mon quotidien tourne autour du full-stack et des bonnes pratiques d’ingénierie logicielle.
+          Je suis un développeur fullstack qui combine rigueur technique et attention au détail. Passionné par l'architecture propre et les solutions scalables, je m'épanouis dans des environnements agiles où l'apprentissage continu fait partie du travail. Très adaptable et proactif, je prends en charge mes projets de bout en bout — des APIs backend aux interfaces utilisateur soignées.
         `,
       },
       experience: frenchExperience,
       projects: [
         {
-          name: 'Démo portfolio',
+          name: 'EcommerceStore',
           description:
-            'Une page d’accueil exemple pour présenter l’expérience, les projets et les moyens de contact.',
-          link: 'https://example.com',
-          technologies: sharedTechnologies,
-        },
-        {
-          name: 'Projet exemple',
-          description:
-            'Remplacez cette fiche par l’un de vos propres projets en ajustant la description, le lien et le stack technique.',
+            'Plateforme e-commerce complète pour la mode avec tableau de bord admin, panier, liste de favoris, recherche en temps réel et authentification JWT avec rôles utilisateur/admin.',
+          repository: 'https://github.com/CodeByJorge/TFG',
+          status: 'development',
           technologies: [
-            { name: 'Technologie 1' },
-            { name: 'Technologie 2' },
+            { name: 'React', icon: '/icons/react.svg' },
+            { name: 'Spring Boot', icon: '/icons/springboot.svg' },
+            { name: 'MySQL', icon: '/icons/mysql.svg' },
+            { name: 'Tailwind CSS', icon: '/icons/tailwind.svg' },
+            { name: 'JWT', icon: '/icons/typescript.svg' },
+            { name: 'Vite', icon: '/icons/typescript.svg' },
           ],
         },
       ],
@@ -375,6 +367,7 @@ export const portfolioConfig: PortfolioConfig = {
       contactSocialsLabel: 'Socials',
       viewProject: 'View project',
       viewCode: 'Code',
+      projectStatusLabel: 'In development',
       menuOpenLabel: 'Open navigation menu',
       menuCloseLabel: 'Close navigation menu',
       languageButtonLabel: 'Français',
@@ -391,6 +384,7 @@ export const portfolioConfig: PortfolioConfig = {
       contactSocialsLabel: 'Réseaux',
       viewProject: 'Voir le projet',
       viewCode: 'Code',
+      projectStatusLabel: 'En développement',
       menuOpenLabel: 'Ouvrir le menu de navigation',
       menuCloseLabel: 'Fermer le menu de navigation',
       languageButtonLabel: 'English',

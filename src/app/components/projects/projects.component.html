@@ -7,10 +7,15 @@
     <article
       class="p-5 rounded-2xl bg-surface border border-muted flex flex-col gap-3"
     >
-      <header>
+      <header class="flex items-start justify-between gap-2">
         <h3 class="text-base font-semibold">
           {{ project.name }}
         </h3>
+        @if (project.status === 'development') {
+          <span class="shrink-0 inline-block rounded-full bg-yellow-500/20 text-yellow-400 text-[0.65rem] font-medium px-2 py-0.5">
+            {{ projectStatusLabel }}
+          </span>
+        }
       </header>
 
       <p class="text-sm text-text">
