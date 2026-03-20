@@ -1,35 +1,35 @@
-# Jorge García — Développeur Web Fullstack
+# Jorge García — Fullstack Web Developer
 
-Portfolio professionnel de développement web fullstack, orienté vers le marché européen.
+Professional fullstack web development portfolio, oriented toward the European market.
 
 🌐 **Live:** [jgdev-portfolio-phi.vercel.app](https://jgdev-portfolio-phi.vercel.app)
 
-## Profil
+## Profile
 
-Développeur fullstack ayant de l'expérience dans le développement d'applications web complètes, des APIs robustes aux interfaces optimisées pour l'utilisateur. Focalisé sur le code maintenable, la performance et la livraison de solutions en production.
+Fullstack developer with experience building complete web applications, from robust APIs to user-optimized interfaces. Focused on maintainable code, performance, and delivering solutions that work in production.
 
 ## Tech Stack
 
 **Frontend:** Angular, React, TypeScript, TailwindCSS, Bootstrap  
 **Backend:** Spring Boot, Symfony, Node.js  
-**Base de données:** PostgreSQL, MySQL  
-**Infrastructure et tooling:** Git/GitHub, Docker, Figma, Postman, Maven
+**Database:** PostgreSQL, MySQL  
+**Infrastructure & tooling:** Git/GitHub, Docker, Figma, Postman, Maven
 
-## Projets
+## Projects
 
-### EcommerceStore — En développement
+### EcommerceStore — In development
 
-Plateforme e-commerce complète avec tableau de bord admin, authentification JWT, panier d'achat et recherche en temps réel. Stack: React · Spring Boot · MySQL · TailwindCSS · JWT
+Full e-commerce platform with admin dashboard, JWT authentication, shopping cart, and real-time search. Stack: React · Spring Boot · MySQL · TailwindCSS · JWT
 
 Repo: [github.com/CodeByJorge/TFG](https://github.com/CodeByJorge/TFG)
 
-## Expérience
+## Experience
 
-**CodeArts Solution S.L.** — Développeur Fullstack (2025–Présent)  
-Développement et déploiement d'applications web B2B : plateforme de gestion d'événements et système de facturation. APIs RESTful, composants Angular réutilisables, bases de données relationnelles optimisées.
+**CodeArts Solution S.L.** — Fullstack Developer (2025–Present)  
+Development and deployment of B2B web applications: event management platform and billing system. RESTful APIs, reusable Angular components, optimized relational databases.
 
-**Freelance** — Développeur Fullstack (2024–2025)  
-Solution e-commerce complète avec tableau de bord admin sécurisé, logique métier avec Spring Boot et Hibernate, conteneurisation Docker.
+**Freelance** — Fullstack Developer (2024–2025)  
+Complete e-commerce solution with secure admin dashboard, backend logic with Spring Boot and Hibernate, Docker containerization.
 
 ## Contact
 
