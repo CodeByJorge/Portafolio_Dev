@@ -2,6 +2,8 @@
 
 Portfolio profesional de desarrollo web fullstack, orientado al mercado europeo.
 
+🌐 **Live:** [jgdev-portfolio-phi.vercel.app](https://jgdev-portfolio-phi.vercel.app)
+
 ## Perfil
 
 Desarrollador fullstack con experiencia en el desarrollo de aplicaciones web completas, desde APIs robustas hasta interfaces optimizadas para el usuario. Enfocado en código mantenible, rendimiento y entrega de soluciones en producción.
