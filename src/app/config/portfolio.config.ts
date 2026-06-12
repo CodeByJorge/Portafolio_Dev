@@ -243,7 +243,7 @@ export const portfolioConfig: PortfolioConfig = {
         resumes: [
           { label: 'CV English', url: '/resume-en.pdf', language: 'en' },
           { label: 'CV Français', url: '/resume-fr.pdf', language: 'fr' },
-          { label: 'CV Español', url: '/resume-es.pdf', language: 'es' },
+          { label: 'CV Español', url: '/CV_Desarrollador_ES.pdf', language: 'es' },
         ],
         summary: `
             Fullstack developer with experience building complete web applications, from robust APIs to polished user-facing interfaces.
@@ -305,7 +305,7 @@ export const portfolioConfig: PortfolioConfig = {
         resumes: [
           { label: 'CV Français', url: '/resume-fr.pdf', language: 'fr' },
           { label: 'CV English', url: '/resume-en.pdf', language: 'en' },
-          { label: 'CV Español', url: '/resume-es.pdf', language: 'es' },
+          { label: 'CV Español', url: '/CV_Desarrollador_ES.pdf', language: 'es' },
         ],
         summary: `
             Développeur full-stack ayant de l'expérience dans le développement d'applications web complètes, des APIs robustes aux interfaces utilisateur soignées.
