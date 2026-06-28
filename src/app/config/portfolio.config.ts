@@ -239,10 +239,10 @@ export const portfolioConfig: PortfolioConfig = {
         location: 'Lausanne, Switzerland',
         availability: 'Available for new opportunities',
         avatarUrl: '/profile.webp',
-        resumeUrl: '/resume-en.pdf',
+        resumeUrl: '/CV_Jorge_Garcia_EN.pdf',
         resumes: [
-          { label: 'CV English', url: '/resume-en.pdf', language: 'en' },
-          { label: 'CV Français', url: '/resume-fr.pdf', language: 'fr' },
+          { label: 'CV English', url: '/CV_Jorge_Garcia_EN.pdf', language: 'en' },
+          { label: 'CV Français', url: '/CV_Jorge_Garcia_FR.pdf', language: 'fr' },
           { label: 'CV Español', url: '/CV_Desarrollador_ES.pdf', language: 'es' },
         ],
         summary: `
@@ -301,10 +301,10 @@ export const portfolioConfig: PortfolioConfig = {
         location: 'Lausanne, Switzerland',
         availability: 'Ouvert aux nouvelles opportunités',
         avatarUrl: '/profile.webp',
-        resumeUrl: '/resume-fr.pdf',
+        resumeUrl: '/CV_Jorge_Garcia_FR.pdf',
         resumes: [
-          { label: 'CV Français', url: '/resume-fr.pdf', language: 'fr' },
-          { label: 'CV English', url: '/resume-en.pdf', language: 'en' },
+          { label: 'CV Français', url: '/CV_Jorge_Garcia_FR.pdf', language: 'fr' },
+          { label: 'CV English', url: '/CV_Jorge_Garcia_EN.pdf', language: 'en' },
           { label: 'CV Español', url: '/CV_Desarrollador_ES.pdf', language: 'es' },
         ],
         summary: `
