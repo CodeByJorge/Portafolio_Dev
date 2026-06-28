@@ -277,11 +277,11 @@ export const portfolioConfig: PortfolioConfig = {
       contact: {
         email: 'gjorgeyariel@gmail.com',
         github: 'https://github.com/CodeByJorge',
-        linkedin: 'https://www.linkedin.com/in/jorge-it-developpeur/',
+        linkedin: 'https://www.linkedin.com/in/jorge-garc%C3%ADa-826474217/',
         location: 'Lausanne, Switzerland',
       },
       socials: [
-        { id: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/jorge-it-developpeur/' },
+        { id: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/jorge-garc%C3%ADa-826474217/' },
         { id: 'github', label: 'GitHub', url: 'https://github.com/CodeByJorge' },
         { id: 'email', label: 'Email', url: 'mailto:gjorgeyariel@gmail.com' },
       ],
@@ -339,11 +339,11 @@ export const portfolioConfig: PortfolioConfig = {
       contact: {
         email: 'gjorgeyariel@gmail.com',
         github: 'https://github.com/CodeByJorge',
-        linkedin: 'https://www.linkedin.com/in/jorge-it-developpeur/',
+        linkedin: 'https://www.linkedin.com/in/jorge-garc%C3%ADa-826474217/',
         location: 'Lausanne, Suisse',
       },
       socials: [
-        { id: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/jorge-it-developpeur/' },
+        { id: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/jorge-garc%C3%ADa-826474217/' },
         { id: 'github', label: 'GitHub', url: 'https://github.com/CodeByJorge' },
         { id: 'email', label: 'Email', url: 'mailto:gjorgeyariel@gmail.com' },
       ],

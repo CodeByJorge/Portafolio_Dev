@@ -34,4 +34,4 @@ Complete e-commerce solution with secure admin dashboard, backend logic with Spr
 ## Contact
 
 Email: gjorgeyariel@gmail.com  
-LinkedIn: [linkedin.com/in/jorge-it-developpeur](https://www.linkedin.com/in/jorge-it-developpeur/)
+LinkedIn: [linkedin.com/in/jorge-garcía-826474217](https://www.linkedin.com/in/jorge-garc%C3%ADa-826474217/)
