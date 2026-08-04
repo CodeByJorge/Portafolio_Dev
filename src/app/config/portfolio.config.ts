@@ -53,6 +53,7 @@ export interface ExperienceItem {
 export interface ProjectItem {
   name: string;
   description: string;
+  coverImage?: string;
   link?: string;
   repository?: string;
   technologies: Technology[];
@@ -103,6 +104,7 @@ export interface LocaleCopy {
   contactSocialsLabel: string;
   viewProject: string;
   viewCode: string;
+  viewDetails: string;
   projectStatusLabel: string;
   menuOpenLabel: string;
   menuCloseLabel: string;
@@ -262,8 +264,10 @@ export const portfolioConfig: PortfolioConfig = {
           name: 'EcommerceStore',
           description:
             'Full e-commerce platform for fashion products with admin dashboard, shopping cart, wishlist, real-time search, and JWT-based authentication with user/admin roles.',
+          coverImage: '/ecommercestore-cover.png',
+          link: 'https://tfg-tienda-frontend.vercel.app',
           repository: 'https://github.com/CodeByJorge/TFG',
-          status: 'development',
+          status: 'production',
           technologies: [
             { name: 'React', icon: '/icons/react.svg' },
             { name: 'Spring Boot', icon: '/icons/springboot.svg' },
@@ -324,8 +328,10 @@ export const portfolioConfig: PortfolioConfig = {
           name: 'EcommerceStore',
           description:
             'Plateforme e-commerce complète pour la mode avec tableau de bord admin, panier, liste de favoris, recherche en temps réel et authentification JWT avec rôles utilisateur/admin.',
+          coverImage: '/ecommercestore-cover.png',
+          link: 'https://tfg-tienda-frontend.vercel.app/login',
           repository: 'https://github.com/CodeByJorge/TFG',
-          status: 'development',
+          status: 'production',
           technologies: [
             { name: 'React', icon: '/icons/react.svg' },
             { name: 'Spring Boot', icon: '/icons/springboot.svg' },
@@ -367,6 +373,7 @@ export const portfolioConfig: PortfolioConfig = {
       contactSocialsLabel: 'Socials',
       viewProject: 'View project',
       viewCode: 'Code',
+      viewDetails: 'Details',
       projectStatusLabel: 'In development',
       menuOpenLabel: 'Open navigation menu',
       menuCloseLabel: 'Close navigation menu',
@@ -384,6 +391,7 @@ export const portfolioConfig: PortfolioConfig = {
       contactSocialsLabel: 'Réseaux',
       viewProject: 'Voir le projet',
       viewCode: 'Code',
+      viewDetails: 'Détails',
       projectStatusLabel: 'En développement',
       menuOpenLabel: 'Ouvrir le menu de navigation',
       menuCloseLabel: 'Fermer le menu de navigation',
