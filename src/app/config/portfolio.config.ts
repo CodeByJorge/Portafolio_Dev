@@ -52,6 +52,7 @@ export interface ExperienceItem {
 
 export interface ProjectItem {
   name: string;
+  subtitle?: string;
   description: string;
   coverImage?: string;
   link?: string;
@@ -261,6 +262,22 @@ export const portfolioConfig: PortfolioConfig = {
       experience: englishExperience,
       projects: [
         {
+          name: 'Karen Toilettage',
+          subtitle: 'à domicile',
+          description:
+            'Showcase site for a home dog grooming service in Lausanne: bilingual FR/ES landing page with service catalogue, photo gallery, client testimonials and WhatsApp booking, built on the Next.js App Router.',
+          coverImage: '/karen-toilettage-cover.webp',
+          link: 'https://karen-toilettage.vercel.app',
+          status: 'development',
+          technologies: [
+            { name: 'Next.js', icon: '/icons/nextjs.svg' },
+            { name: 'React', icon: '/icons/react.svg' },
+            { name: 'TypeScript', icon: '/icons/typescript.svg' },
+            { name: 'Tailwind CSS', icon: '/icons/tailwind.svg' },
+            { name: 'Vercel', icon: '/icons/vercel.svg' },
+          ],
+        },
+        {
           name: 'EcommerceStore',
           description:
             'Full e-commerce platform for fashion products with admin dashboard, shopping cart, wishlist, real-time search, and JWT-based authentication with user/admin roles.',
@@ -324,6 +341,22 @@ export const portfolioConfig: PortfolioConfig = {
       },
       experience: frenchExperience,
       projects: [
+        {
+          name: 'Karen Toilettage',
+          subtitle: 'à domicile',
+          description:
+            'Site vitrine d\'un service de toilettage canin à domicile à Lausanne : landing page bilingue FR/ES avec catalogue de services, galerie photo, témoignages clients et réservation via WhatsApp, développée avec l\'App Router de Next.js.',
+          coverImage: '/karen-toilettage-cover.webp',
+          link: 'https://karen-toilettage.vercel.app',
+          status: 'development',
+          technologies: [
+            { name: 'Next.js', icon: '/icons/nextjs.svg' },
+            { name: 'React', icon: '/icons/react.svg' },
+            { name: 'TypeScript', icon: '/icons/typescript.svg' },
+            { name: 'Tailwind CSS', icon: '/icons/tailwind.svg' },
+            { name: 'Vercel', icon: '/icons/vercel.svg' },
+          ],
+        },
         {
           name: 'EcommerceStore',
           description:

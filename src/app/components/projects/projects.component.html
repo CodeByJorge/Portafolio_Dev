@@ -2,7 +2,7 @@
   {{ title }}
 </h2>
 
-<div class="flex flex-wrap justify-center gap-5">
+<div class="flex flex-col items-center gap-10">
   @for (project of items; track project) {
     <article
       class="group w-full max-w-[380px] overflow-hidden rounded-2xl bg-surface border border-muted flex flex-col"
@@ -30,6 +30,11 @@
 
           <h3 class="absolute bottom-3 left-4 right-4 text-white text-lg font-bold uppercase tracking-widest">
             {{ project.name }}
+            @if (project.subtitle) {
+              <span class="block mt-0.5 text-[0.7rem] font-normal italic normal-case tracking-normal text-white/85">
+                {{ project.subtitle }}
+              </span>
+            }
           </h3>
         </a>
       }
@@ -39,6 +44,11 @@
           <header class="flex items-start justify-between gap-2">
             <h3 class="text-base font-semibold">
               {{ project.name }}
+              @if (project.subtitle) {
+                <span class="block mt-0.5 text-xs font-normal italic text-muted">
+                  {{ project.subtitle }}
+                </span>
+              }
             </h3>
             @if (project.status === 'development') {
               <span class="shrink-0 inline-block border border-muted uppercase text-[0.6rem] tracking-widest px-2 py-1">
