@@ -1,5 +1,5 @@
 <div
-  class="rounded-2xl border border-secondary/50 bg-secondary/5 p-6 sm:p-8 flex flex-col gap-4"
+  class="rounded-2xl border border-secondary/30 bg-secondary/[0.04] p-6 sm:p-8 flex flex-col gap-4"
 >
   <h2 class="text-[1.2rem] font-semibold">
     {{ hiring.title }}
@@ -16,7 +16,7 @@
       </span>
       @for (resume of resumes; track resume.url) {
         <a
-          class="inline-flex items-center rounded-full border border-secondary px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-secondary no-underline transition-colors hover:bg-secondary hover:text-background"
+          class="inline-flex items-center rounded-full border border-line bg-surface px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-text no-underline transition-colors hover:border-secondary hover:text-secondary"
           [href]="resume.url"
           target="_blank"
           rel="noreferrer"
