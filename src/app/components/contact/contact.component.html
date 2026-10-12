@@ -20,11 +20,11 @@
           formControlName="name"
           autocomplete="name"
           class="rounded-xl border border-line bg-surface px-4 py-2.5 text-sm text-text outline-none transition-colors focus:border-primary"
-          [class.border-red-500]="isInvalid('name')"
+          [class.border-red-400]="isInvalid('name')"
           [attr.aria-invalid]="isInvalid('name')"
         />
         @if (isInvalid('name')) {
-          <span class="text-[0.7rem] text-red-600">{{ requiredHint }}</span>
+          <span class="text-[0.7rem] text-red-400">{{ requiredHint }}</span>
         }
       </label>
 
@@ -37,11 +37,11 @@
           formControlName="email"
           autocomplete="email"
           class="rounded-xl border border-line bg-surface px-4 py-2.5 text-sm text-text outline-none transition-colors focus:border-primary"
-          [class.border-red-500]="isInvalid('email')"
+          [class.border-red-400]="isInvalid('email')"
           [attr.aria-invalid]="isInvalid('email')"
         />
         @if (isInvalid('email')) {
-          <span class="text-[0.7rem] text-red-600">{{ requiredHint }}</span>
+          <span class="text-[0.7rem] text-red-400">{{ requiredHint }}</span>
         }
       </label>
     </div>
@@ -85,11 +85,11 @@
         rows="5"
         [attr.placeholder]="messagePlaceholder"
         class="resize-y rounded-xl border border-line bg-surface px-4 py-2.5 text-sm text-text outline-none transition-colors focus:border-primary"
-        [class.border-red-500]="isInvalid('message')"
+        [class.border-red-400]="isInvalid('message')"
         [attr.aria-invalid]="isInvalid('message')"
       ></textarea>
       @if (isInvalid('message')) {
-        <span class="text-[0.7rem] text-red-600">{{ requiredHint }}</span>
+        <span class="text-[0.7rem] text-red-400">{{ requiredHint }}</span>
       }
     </label>
 
@@ -111,7 +111,7 @@
 
     @if (state === 'handoff') {
       <p
-        class="rounded-xl border border-emerald-600/30 bg-emerald-600/10 px-4 py-3 text-sm text-emerald-700"
+        class="rounded-xl border border-emerald-500/40 bg-emerald-500/15 px-4 py-3 text-sm text-emerald-400"
         role="status"
       >
         {{ whatsappHandoffMessage }}
@@ -120,7 +120,7 @@
 
     @if (state === 'success') {
       <p
-        class="rounded-xl border border-emerald-600/30 bg-emerald-600/10 px-4 py-3 text-sm text-emerald-700"
+        class="rounded-xl border border-emerald-500/40 bg-emerald-500/15 px-4 py-3 text-sm text-emerald-400"
         role="status"
       >
         {{ successMessage }}
@@ -129,7 +129,7 @@
 
     @if (state === 'error') {
       <p
-        class="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-700"
+        class="rounded-xl border border-red-400/40 bg-red-400/10 px-4 py-3 text-sm text-red-300"
         role="alert"
       >
         {{ errorMessage }}
