@@ -7,6 +7,7 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HeroComponent } from './components/hero/hero.component';
+import { HiringComponent } from './components/hiring/hiring.component';
 import { ProcessComponent } from './components/process/process.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ServicesComponent } from './components/services/services.component';
@@ -34,6 +35,7 @@ const LANGUAGE_STORAGE_KEY = 'jgdev.language';
     TestimonialsComponent,
     AboutComponent,
     ExperienceComponent,
+    HiringComponent,
     ContactComponent,
     FooterComponent,
   ],

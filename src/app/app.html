@@ -84,6 +84,14 @@
             />
           }
 
+          @if (section === 'hiring') {
+            <app-hiring
+              [hiring]="localeContent.hiring"
+              [resumes]="localeContent.hero.resumes ?? []"
+              [linkedinUrl]="localeContent.contact.linkedin"
+            />
+          }
+
           @if (section === 'contact') {
             <app-contact
               [contact]="localeContent.contact"

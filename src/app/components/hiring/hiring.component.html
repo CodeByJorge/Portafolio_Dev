@@ -1,0 +1,42 @@
+<div
+  class="rounded-2xl border border-secondary/50 bg-secondary/5 p-6 sm:p-8 flex flex-col gap-4"
+>
+  <h2 class="text-[1.2rem] font-semibold">
+    {{ hiring.title }}
+  </h2>
+
+  <p class="text-sm text-muted max-w-[62ch]">
+    {{ hiring.body }}
+  </p>
+
+  <div class="flex flex-wrap items-center gap-3 pt-1">
+    @if (resumes.length) {
+      <span class="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-muted">
+        {{ hiring.resumeLabel }}
+      </span>
+      @for (resume of resumes; track resume.url) {
+        <a
+          class="inline-flex items-center rounded-full border border-secondary px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-secondary no-underline transition-colors hover:bg-secondary hover:text-background"
+          [href]="resume.url"
+          target="_blank"
+          rel="noreferrer"
+          download
+        >
+          {{ resume.language }}
+        </a>
+      }
+    }
+
+    @if (linkedinUrl) {
+      <a
+        class="inline-flex items-center gap-2 text-xs text-text no-underline transition-colors hover:text-secondary"
+        [href]="linkedinUrl"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <img class="h-4 w-4" src="/icons/linkedin.svg" alt="" />
+        <span>{{ hiring.linkedinLabel }}</span>
+      </a>
+    }
+  </div>
+</div>

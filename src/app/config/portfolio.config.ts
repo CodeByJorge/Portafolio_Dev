@@ -6,6 +6,7 @@ export type SectionId =
   | 'testimonials'
   | 'about'
   | 'experience'
+  | 'hiring'
   | 'contact';
 export type Language = 'fr' | 'en' | 'es';
 export type ResumeLanguage = 'en' | 'fr' | 'es';
@@ -129,6 +130,17 @@ export interface ContactConfig {
   serviceInterests: ServiceInterest[];
 }
 
+/**
+ * The site sells to clients, but Jorge is also open to employment.
+ * This block states that plainly instead of leaving a recruiter to guess.
+ */
+export interface HiringConfig {
+  title: string;
+  body: string;
+  resumeLabel: string;
+  linkedinLabel: string;
+}
+
 export interface AboutConfig {
   title: string;
   body: string;
@@ -158,6 +170,7 @@ export interface LocaleContent {
   process: ProcessStep[];
   testimonials: Testimonial[];
   about: AboutConfig;
+  hiring: HiringConfig;
   experience: ExperienceItem[];
   projects: ProjectItem[];
   contact: ContactConfig;
@@ -714,6 +727,7 @@ export const portfolioConfig: PortfolioConfig = {
       'testimonials',
       'about',
       'experience',
+      'hiring',
       'contact',
     ],
   },
@@ -737,7 +751,7 @@ export const portfolioConfig: PortfolioConfig = {
         availability: 'Disponible pour de nouveaux projets',
         avatarUrl: '/profile.webp',
         summary: `
-          J'accompagne les petites et moyennes entreprises de Suisse romande, d'Espagne et d'Europe :
+          J'accompagne les petites et moyennes entreprises en Suisse, en Espagne et en Europe :
           du site vitrine qui attire des clients à l'application sur mesure qui remplace vos tableurs.
           Devis fixe, délai annoncé, un seul interlocuteur du début à la fin.
         `,
@@ -772,7 +786,7 @@ export const portfolioConfig: PortfolioConfig = {
             "Une page que Karen peut envoyer en un lien, qui répond aux questions de tarif et de zone d'intervention avant même le premier contact, et qui ouvre la réservation directement dans WhatsApp.",
           coverImage: '/karen-toilettage-cover.webp',
           link: 'https://karen-toilettage.vercel.app',
-          status: 'development',
+          status: 'production',
           technologies: karenTechnologies,
         },
         {
@@ -808,6 +822,16 @@ export const portfolioConfig: PortfolioConfig = {
           { section: 'contact', label: 'Contact' },
         ],
       },
+      hiring: {
+        title: 'Vous recrutez ?',
+        body: `
+          En parallèle de mes projets clients, je reste ouvert à un poste de développeur
+          fullstack en Suisse. Si vous cherchez quelqu'un qui livre en production et qui
+          travaille en français, en espagnol et en anglais, voici de quoi en savoir plus.
+        `,
+        resumeLabel: 'Mon CV',
+        linkedinLabel: 'Mon profil LinkedIn',
+      },
       footer: {
         resumeLabel: 'Vous recrutez ? Mon CV',
         rights: 'Tous droits réservés.',
@@ -823,7 +847,7 @@ export const portfolioConfig: PortfolioConfig = {
         availability: 'Available for new projects',
         avatarUrl: '/profile.webp',
         summary: `
-          I work with small and medium businesses across French-speaking Switzerland, Spain and Europe:
+          I work with small and medium businesses across Switzerland, Spain and Europe:
           from the website that brings you customers to the custom application that replaces your spreadsheets.
           Fixed quote, stated deadline, one person from start to finish.
         `,
@@ -858,7 +882,7 @@ export const portfolioConfig: PortfolioConfig = {
             'A page Karen can send as a single link, which answers questions about pricing and coverage area before the first contact, and opens booking straight into WhatsApp.',
           coverImage: '/karen-toilettage-cover.webp',
           link: 'https://karen-toilettage.vercel.app',
-          status: 'development',
+          status: 'production',
           technologies: karenTechnologies,
         },
         {
@@ -894,6 +918,16 @@ export const portfolioConfig: PortfolioConfig = {
           { section: 'contact', label: 'Contact' },
         ],
       },
+      hiring: {
+        title: 'Hiring?',
+        body: `
+          Alongside my client work I remain open to a fullstack developer position in
+          Switzerland. If you are looking for someone who ships to production and works
+          in French, Spanish and English, here is where to find out more.
+        `,
+        resumeLabel: 'My CV',
+        linkedinLabel: 'My LinkedIn profile',
+      },
       footer: {
         resumeLabel: 'Hiring? My CV',
         rights: 'All rights reserved.',
@@ -909,7 +943,7 @@ export const portfolioConfig: PortfolioConfig = {
         availability: 'Disponible para nuevos proyectos',
         avatarUrl: '/profile.webp',
         summary: `
-          Trabajo con pequeñas y medianas empresas de la Suiza francófona, España y Europa:
+          Trabajo con pequeñas y medianas empresas de Suiza, España y Europa:
           desde la web que te trae clientes hasta la aplicación a medida que sustituye tus hojas de cálculo.
           Presupuesto cerrado, plazo anunciado y un único interlocutor de principio a fin.
         `,
@@ -944,7 +978,7 @@ export const portfolioConfig: PortfolioConfig = {
             'Una página que Karen envía como un único enlace, que responde a las dudas de precio y zona de cobertura antes del primer contacto y que abre la reserva directamente en WhatsApp.',
           coverImage: '/karen-toilettage-cover.webp',
           link: 'https://karen-toilettage.vercel.app',
-          status: 'development',
+          status: 'production',
           technologies: karenTechnologies,
         },
         {
@@ -979,6 +1013,16 @@ export const portfolioConfig: PortfolioConfig = {
           { section: 'about', label: 'Sobre mí' },
           { section: 'contact', label: 'Contacto' },
         ],
+      },
+      hiring: {
+        title: '¿Buscas contratar?',
+        body: `
+          Además de mis proyectos con clientes, sigo abierto a un puesto de desarrollador
+          fullstack en Suiza. Si buscas a alguien que entregue en producción y que trabaje
+          en francés, español e inglés, aquí tienes por dónde empezar.
+        `,
+        resumeLabel: 'Mi CV',
+        linkedinLabel: 'Mi perfil de LinkedIn',
       },
       footer: {
         resumeLabel: '¿Buscas contratar? Mi CV',
