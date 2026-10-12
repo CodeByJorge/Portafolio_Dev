@@ -250,7 +250,7 @@ const LINKEDIN_URL = 'https://www.linkedin.com/in/jorge-garc%C3%ADa-826474217/';
 const WHATSAPP_NUMBER = '34634221314';
 
 /** The number published on the site for people who want to call. */
-const PHONE_NUMBER = '+41 76 447 91 50';
+const PHONE_NUMBER = '+41 76 547 91 50';
 
 /** TODO: paste the Web3Forms / Formspree endpoint here to activate the form. */
 const FORM_ENDPOINT = '';
