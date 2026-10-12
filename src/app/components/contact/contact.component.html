@@ -109,6 +109,15 @@
       {{ state === 'sending' ? sendingLabel : submitLabel }}
     </button>
 
+    @if (state === 'handoff') {
+      <p
+        class="rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-400"
+        role="status"
+      >
+        {{ whatsappHandoffMessage }}
+      </p>
+    }
+
     @if (state === 'success') {
       <p
         class="rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-400"
@@ -142,19 +151,16 @@
       </a>
     </div>
 
-    @if (whatsappLink) {
+    @if (phone) {
       <div class="flex flex-col gap-2">
         <p class="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-muted">
-          {{ whatsappLabel }}
+          {{ phoneLabel }}
         </p>
         <a
-          class="inline-flex w-fit items-center gap-2 rounded-full border border-emerald-500/60 px-3 py-2 text-xs text-emerald-400 no-underline transition-colors hover:bg-emerald-500/10"
-          [href]="whatsappLink"
-          target="_blank"
-          rel="noreferrer"
+          class="inline-flex w-fit items-center gap-2 rounded-full border border-muted px-3 py-2 text-xs text-text no-underline transition-colors hover:border-primary hover:text-primary"
+          [href]="phoneLink"
         >
-          <img src="/icons/whatsapp.svg" alt="" class="h-4 w-4" />
-          <span>{{ whatsappDisplay }}</span>
+          {{ phone }}
         </a>
       </div>
     }

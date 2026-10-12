@@ -117,8 +117,13 @@ export interface ServiceInterest {
 
 export interface ContactConfig {
   email: string;
-  /** International format, digits only — used to build the wa.me link. */
+  /**
+   * Destination for the contact form only. Never rendered: the number is not
+   * shown anywhere on the page, and `phone` is the number visitors are given.
+   */
   whatsapp?: string;
+  /** The number shown on the page and dialled by the tel: link. */
+  phone?: string;
   github?: string;
   linkedin?: string;
   location?: string;
@@ -199,7 +204,7 @@ export interface LocaleCopy {
   contactTitle: string;
   contactSubtitle: string;
   contactEmailLabel: string;
-  contactWhatsappLabel: string;
+  contactPhoneLabel: string;
   contactLocationLabel: string;
   contactSocialsLabel: string;
   formNameLabel: string;
@@ -211,6 +216,8 @@ export interface LocaleCopy {
   formSubmitLabel: string;
   formSendingLabel: string;
   formSuccessMessage: string;
+  /** The WhatsApp path only drafts the message; the visitor still has to send it. */
+  formWhatsappHandoffMessage: string;
   formErrorMessage: string;
   formRequiredHint: string;
   viewProject: string;
@@ -239,8 +246,11 @@ const CONTACT_EMAIL = 'gjorgeyariel@gmail.com';
 const GITHUB_URL = 'https://github.com/CodeByJorge';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/jorge-garc%C3%ADa-826474217/';
 
-/** International format, digits only — the wa.me link is built from this. */
+/** Form submissions open WhatsApp on this number. It is never displayed. */
 const WHATSAPP_NUMBER = '34634221314';
+
+/** The number published on the site for people who want to call. */
+const PHONE_NUMBER = '+41 76 447 91 50';
 
 /** TODO: paste the Web3Forms / Formspree endpoint here to activate the form. */
 const FORM_ENDPOINT = '';
@@ -860,6 +870,7 @@ export const portfolioConfig: PortfolioConfig = {
       contact: {
         email: CONTACT_EMAIL,
         whatsapp: WHATSAPP_NUMBER,
+        phone: PHONE_NUMBER,
         github: GITHUB_URL,
         linkedin: LINKEDIN_URL,
         location: 'Lausanne, Suisse',
@@ -956,6 +967,7 @@ export const portfolioConfig: PortfolioConfig = {
       contact: {
         email: CONTACT_EMAIL,
         whatsapp: WHATSAPP_NUMBER,
+        phone: PHONE_NUMBER,
         github: GITHUB_URL,
         linkedin: LINKEDIN_URL,
         location: 'Lausanne, Switzerland',
@@ -1052,6 +1064,7 @@ export const portfolioConfig: PortfolioConfig = {
       contact: {
         email: CONTACT_EMAIL,
         whatsapp: WHATSAPP_NUMBER,
+        phone: PHONE_NUMBER,
         github: GITHUB_URL,
         linkedin: LINKEDIN_URL,
         location: 'Lausana, Suiza',
@@ -1106,7 +1119,7 @@ export const portfolioConfig: PortfolioConfig = {
       contactSubtitle:
         'Décrivez-moi votre besoin en quelques lignes. Je réponds sous 24 heures, et le premier échange ne vous engage à rien.',
       contactEmailLabel: 'Email',
-      contactWhatsappLabel: 'WhatsApp',
+      contactPhoneLabel: 'Téléphone',
       contactLocationLabel: 'Localisation',
       contactSocialsLabel: 'Réseaux',
       formNameLabel: 'Votre nom',
@@ -1116,9 +1129,11 @@ export const portfolioConfig: PortfolioConfig = {
       formMessagePlaceholder:
         'Par exemple : je suis fleuriste à Lausanne et je voudrais que mes clients puissent commander en ligne.',
       formInterestsLabel: 'Qu\'est-ce qui vous intéresse ?',
-      formSubmitLabel: 'Envoyer ma demande',
+      formSubmitLabel: 'Envoyer via WhatsApp',
       formSendingLabel: 'Envoi en cours…',
       formSuccessMessage: 'Message reçu. Je vous réponds sous 24 heures.',
+      formWhatsappHandoffMessage:
+        "WhatsApp s'ouvre avec votre message prêt. Il ne reste qu'à l'envoyer.",
       formErrorMessage:
         "L'envoi a échoué. Écrivez-moi directement à " + CONTACT_EMAIL + '.',
       formRequiredHint: 'Champ obligatoire',
@@ -1153,7 +1168,7 @@ export const portfolioConfig: PortfolioConfig = {
       contactSubtitle:
         'Describe what you need in a few lines. I reply within 24 hours, and the first conversation commits you to nothing.',
       contactEmailLabel: 'Email',
-      contactWhatsappLabel: 'WhatsApp',
+      contactPhoneLabel: 'Phone',
       contactLocationLabel: 'Location',
       contactSocialsLabel: 'Socials',
       formNameLabel: 'Your name',
@@ -1163,9 +1178,11 @@ export const portfolioConfig: PortfolioConfig = {
       formMessagePlaceholder:
         'For example: I run a flower shop in Lausanne and I would like my customers to order online.',
       formInterestsLabel: 'What are you interested in?',
-      formSubmitLabel: 'Send my enquiry',
+      formSubmitLabel: 'Send via WhatsApp',
       formSendingLabel: 'Sending…',
       formSuccessMessage: 'Message received. I will reply within 24 hours.',
+      formWhatsappHandoffMessage:
+        'WhatsApp has opened with your message ready. All that is left is to send it.',
       formErrorMessage: 'Sending failed. Write to me directly at ' + CONTACT_EMAIL + '.',
       formRequiredHint: 'Required field',
       viewProject: 'Visit the site',
@@ -1199,7 +1216,7 @@ export const portfolioConfig: PortfolioConfig = {
       contactSubtitle:
         'Cuéntame qué necesitas en unas líneas. Respondo en menos de 24 horas y la primera conversación no te compromete a nada.',
       contactEmailLabel: 'Email',
-      contactWhatsappLabel: 'WhatsApp',
+      contactPhoneLabel: 'Teléfono',
       contactLocationLabel: 'Ubicación',
       contactSocialsLabel: 'Redes',
       formNameLabel: 'Tu nombre',
@@ -1209,9 +1226,11 @@ export const portfolioConfig: PortfolioConfig = {
       formMessagePlaceholder:
         'Por ejemplo: tengo una floristería en Lausana y me gustaría que mis clientes pudieran pedir online.',
       formInterestsLabel: '¿Qué te interesa?',
-      formSubmitLabel: 'Enviar mi consulta',
+      formSubmitLabel: 'Enviar por WhatsApp',
       formSendingLabel: 'Enviando…',
       formSuccessMessage: 'Mensaje recibido. Te respondo en menos de 24 horas.',
+      formWhatsappHandoffMessage:
+        'WhatsApp se ha abierto con tu mensaje listo. Solo falta que lo envíes.',
       formErrorMessage: 'El envío ha fallado. Escríbeme directamente a ' + CONTACT_EMAIL + '.',
       formRequiredHint: 'Campo obligatorio',
       viewProject: 'Visitar la web',

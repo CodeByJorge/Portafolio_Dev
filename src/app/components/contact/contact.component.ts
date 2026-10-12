@@ -9,7 +9,7 @@ import {
 } from '@angular/forms';
 import { ContactConfig, ServiceInterest, SocialLink } from '../../config/portfolio.config';
 
-type SubmitState = 'idle' | 'sending' | 'success' | 'error';
+type SubmitState = 'idle' | 'sending' | 'success' | 'handoff' | 'error';
 
 @Component({
   selector: 'app-contact',
@@ -31,7 +31,7 @@ export class ContactComponent {
   @Input() title = 'Contact';
   @Input() subtitle = '';
   @Input() emailLabel = 'Email';
-  @Input() whatsappLabel = 'WhatsApp';
+  @Input() phoneLabel = 'Phone';
   @Input() locationLabel = 'Location';
   @Input() socialsLabel = 'Socials';
   @Input() nameLabel = 'Your name';
@@ -43,6 +43,7 @@ export class ContactComponent {
   @Input() submitLabel = 'Send';
   @Input() sendingLabel = 'Sending…';
   @Input() successMessage = '';
+  @Input() whatsappHandoffMessage = '';
   @Input() errorMessage = '';
   @Input() requiredHint = 'Required field';
 
@@ -72,15 +73,12 @@ export class ContactComponent {
     return this.contactConfig?.serviceInterests ?? [];
   }
 
-  protected get whatsappLink(): string | null {
-    const number = this.whatsappDigits;
-    return number ? `https://wa.me/${number}` : null;
+  protected get phone(): string {
+    return this.contactConfig?.phone ?? '';
   }
 
-  /** Shown next to the link so the number is visible before anyone clicks. */
-  protected get whatsappDisplay(): string {
-    const number = this.whatsappDigits;
-    return number ? `+${number}` : '';
+  protected get phoneLink(): string {
+    return this.phone ? `tel:${this.phone.replace(/[^\d+]/g, '')}` : '';
   }
 
   private get whatsappDigits(): string {
@@ -105,9 +103,21 @@ export class ContactComponent {
     }
 
     const payload = this.buildPayload();
+
+    // Preferred channel: hand the enquiry straight to WhatsApp, prefilled.
+    // A new tab keeps the site open if the visitor has no WhatsApp installed.
+    if (this.whatsappDigits) {
+      window.open(this.buildWhatsappLink(payload), '_blank', 'noopener');
+      // Not 'success': nothing has reached Jorge until the visitor hits send.
+      this.state = 'handoff';
+      this.form.reset();
+      this.syncInterests(this.serviceInterests);
+      return;
+    }
+
     const endpoint = this.contactConfig?.formEndpoint;
 
-    // Without a configured endpoint the form would silently drop the lead,
+    // Without a channel the form would silently drop the lead,
     // so hand it to the visitor's mail client instead.
     if (!endpoint) {
       window.location.href = this.buildMailtoLink(payload);
@@ -153,6 +163,21 @@ export class ContactComponent {
     return this.serviceInterests
       .filter((_, index) => this.interests.at(index)?.value)
       .map((interest) => interest.label);
+  }
+
+  private buildWhatsappLink(payload: Record<string, string>): string {
+    const text = [
+      `${this.nameLabel}: ${payload['name']}`,
+      `${this.emailFieldLabel}: ${payload['email']}`,
+      payload['company'] ? `${this.companyLabel}: ${payload['company']}` : '',
+      payload['interests'] ? `${this.interestsLabel} ${payload['interests']}` : '',
+      '',
+      payload['message'],
+    ]
+      .filter(Boolean)
+      .join('\n');
+
+    return `https://wa.me/${this.whatsappDigits}?text=${encodeURIComponent(text)}`;
   }
 
   private buildMailtoLink(payload: Record<string, string>): string {
