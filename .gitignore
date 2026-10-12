@@ -146,4 +146,7 @@ public/*
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
-\n/.angular/cache
+/.angular/cache
+
+# AI tooling metadata
+.serena/
