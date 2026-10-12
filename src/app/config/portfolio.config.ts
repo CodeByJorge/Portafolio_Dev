@@ -264,6 +264,15 @@ const independentTechnologies: Technology[] = [
   { name: 'Postman', icon: '/icons/postman.svg' },
 ];
 
+const studioTechnologies: Technology[] = [
+  { name: 'Next.js', icon: '/icons/nextjs.svg' },
+  { name: 'Angular', icon: '/icons/angular.svg' },
+  { name: 'React', icon: '/icons/react.svg' },
+  { name: 'TypeScript', icon: '/icons/typescript.svg' },
+  { name: 'Tailwind CSS', icon: '/icons/tailwind.svg' },
+  { name: 'Vercel', icon: '/icons/vercel.svg' },
+];
+
 const karenTechnologies: Technology[] = [
   { name: 'Next.js', icon: '/icons/nextjs.svg' },
   { name: 'React', icon: '/icons/react.svg' },
@@ -288,13 +297,14 @@ const frenchExperience: ExperienceItem[] = [
     startDate: 'Fév 2026',
     endDate: 'Présent',
     description: `
-      Développement d'une solution e-commerce complète avec interface client et tableau de bord administrateur sécurisé pour la
-      gestion des stocks et des commandes.
-      Implémentation de la logique métier backend avec Spring Boot et Hibernate, garantissant des transactions sécurisées et des
-      endpoints API robustes (testés via Postman).
-      Conteneurisation de l'application avec Docker et conception UI/UX sur Figma.
+      Conception et développement de sites web et d'applications pour des PME en Suisse et en Europe,
+      de la prise de besoin à la mise en ligne.
+      Livraison du site vitrine de Karen Toilettage à Lausanne : landing page bilingue FR/ES avec
+      catalogue de services, galerie photo et réservation directe par WhatsApp.
+      Devis à prix fixe, démonstrations hebdomadaires et formation du client à la prise en main.
+      Hébergement, nom de domaine, certificats et maintenance assurés après la livraison.
     `,
-    technologies: independentTechnologies,
+    technologies: studioTechnologies,
   },
   {
     company: 'CodeArts Solution S.L.',
@@ -314,6 +324,20 @@ const frenchExperience: ExperienceItem[] = [
     `,
     technologies: sharedTechnologies,
   },
+  {
+    company: 'Indépendant',
+    role: 'Développeur fullstack',
+    startDate: 'Sep 2024',
+    endDate: 'Jan 2025',
+    description: `
+      Développement d'une solution e-commerce complète avec interface client et tableau de bord administrateur sécurisé pour la
+      gestion des stocks et des commandes.
+      Implémentation de la logique métier backend avec Spring Boot et Hibernate, garantissant des transactions sécurisées et des
+      endpoints API robustes (testés via Postman).
+      Conteneurisation de l'application avec Docker et conception UI/UX sur Figma.
+    `,
+    technologies: independentTechnologies,
+  },
 ];
 
 const englishExperience: ExperienceItem[] = [
@@ -323,11 +347,14 @@ const englishExperience: ExperienceItem[] = [
     startDate: 'Feb 2026',
     endDate: 'Present',
     description: `
-      Development of a complete e-commerce solution with client interface and secure admin dashboard for stock and order management.
-      Implementation of backend business logic with Spring Boot and Hibernate, ensuring secure transactions and robust API endpoints (tested via Postman).
-      Application containerization with Docker and UI/UX design on Figma.
+      Design and development of websites and applications for small and medium businesses in
+      Switzerland and Europe, from the first conversation to going live.
+      Delivered the Karen Toilettage site in Lausanne: a bilingual FR/ES landing page with a
+      service catalogue, photo gallery and direct WhatsApp booking.
+      Fixed-price quotes, weekly demos and hands-on training for the client.
+      Hosting, domain names, certificates and maintenance handled after delivery.
     `,
-    technologies: independentTechnologies,
+    technologies: studioTechnologies,
   },
   {
     company: 'CodeArts Solution S.L.',
@@ -346,6 +373,18 @@ const englishExperience: ExperienceItem[] = [
     `,
     technologies: sharedTechnologies,
   },
+  {
+    company: 'Independent',
+    role: 'Fullstack developer',
+    startDate: 'Sep 2024',
+    endDate: 'Jan 2025',
+    description: `
+      Development of a complete e-commerce solution with client interface and secure admin dashboard for stock and order management.
+      Implementation of backend business logic with Spring Boot and Hibernate, ensuring secure transactions and robust API endpoints (tested via Postman).
+      Application containerization with Docker and UI/UX design on Figma.
+    `,
+    technologies: independentTechnologies,
+  },
 ];
 
 const spanishExperience: ExperienceItem[] = [
@@ -355,13 +394,14 @@ const spanishExperience: ExperienceItem[] = [
     startDate: 'Feb 2026',
     endDate: 'Actualidad',
     description: `
-      Desarrollo de una solución e-commerce completa con interfaz de cliente y panel de administración seguro para la
-      gestión de stock y pedidos.
-      Implementación de la lógica de negocio backend con Spring Boot e Hibernate, garantizando transacciones seguras y
-      endpoints de API robustos (probados con Postman).
-      Contenedorización de la aplicación con Docker y diseño UI/UX en Figma.
+      Diseño y desarrollo de webs y aplicaciones para pequeñas y medianas empresas en Suiza y
+      Europa, desde la toma de requisitos hasta la puesta en marcha.
+      Entrega de la web de Karen Toilettage en Lausana: landing page bilingüe FR/ES con catálogo
+      de servicios, galería de fotos y reserva directa por WhatsApp.
+      Presupuestos cerrados, demos semanales y formación al cliente para que lo maneje solo.
+      Hosting, dominio, certificados y mantenimiento tras la entrega.
     `,
-    technologies: independentTechnologies,
+    technologies: studioTechnologies,
   },
   {
     company: 'CodeArts Solution S.L.',
@@ -379,6 +419,20 @@ const spanishExperience: ExperienceItem[] = [
       Control de versiones y colaboración en equipo con Git/GitHub en entorno Agile/Scrum.
     `,
     technologies: sharedTechnologies,
+  },
+  {
+    company: 'Independiente',
+    role: 'Desarrollador fullstack',
+    startDate: 'Sep 2024',
+    endDate: 'Ene 2025',
+    description: `
+      Desarrollo de una solución e-commerce completa con interfaz de cliente y panel de administración seguro para la
+      gestión de stock y pedidos.
+      Implementación de la lógica de negocio backend con Spring Boot e Hibernate, garantizando transacciones seguras y
+      endpoints de API robustos (probados con Postman).
+      Contenedorización de la aplicación con Docker y diseño UI/UX en Figma.
+    `,
+    technologies: independentTechnologies,
   },
 ];
 
