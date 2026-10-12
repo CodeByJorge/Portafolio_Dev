@@ -1,4 +1,4 @@
-<footer class="border-t border-slate-500/40 mt-4">
+<footer class="border-t border-line mt-4">
   <div
     class="max-w-[960px] mx-auto px-6 py-10 flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between"
   >
@@ -36,7 +36,7 @@
         <div class="flex flex-wrap gap-2 sm:justify-end">
           @for (resume of resumes; track resume.url) {
             <a
-              class="inline-flex items-center rounded-full border border-muted px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-muted no-underline transition-colors hover:border-primary hover:text-primary"
+              class="inline-flex items-center rounded-full border border-line px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-muted no-underline transition-colors hover:border-primary hover:text-primary"
               [href]="resume.url"
               target="_blank"
               rel="noreferrer"

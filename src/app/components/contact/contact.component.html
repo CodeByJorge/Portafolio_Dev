@@ -19,12 +19,12 @@
           type="text"
           formControlName="name"
           autocomplete="name"
-          class="rounded-xl border border-muted bg-surface px-4 py-2.5 text-sm text-text outline-none transition-colors focus:border-primary"
-          [class.border-red-400]="isInvalid('name')"
+          class="rounded-xl border border-line bg-surface px-4 py-2.5 text-sm text-text outline-none transition-colors focus:border-primary"
+          [class.border-red-500]="isInvalid('name')"
           [attr.aria-invalid]="isInvalid('name')"
         />
         @if (isInvalid('name')) {
-          <span class="text-[0.7rem] text-red-400">{{ requiredHint }}</span>
+          <span class="text-[0.7rem] text-red-600">{{ requiredHint }}</span>
         }
       </label>
 
@@ -36,12 +36,12 @@
           type="email"
           formControlName="email"
           autocomplete="email"
-          class="rounded-xl border border-muted bg-surface px-4 py-2.5 text-sm text-text outline-none transition-colors focus:border-primary"
-          [class.border-red-400]="isInvalid('email')"
+          class="rounded-xl border border-line bg-surface px-4 py-2.5 text-sm text-text outline-none transition-colors focus:border-primary"
+          [class.border-red-500]="isInvalid('email')"
           [attr.aria-invalid]="isInvalid('email')"
         />
         @if (isInvalid('email')) {
-          <span class="text-[0.7rem] text-red-400">{{ requiredHint }}</span>
+          <span class="text-[0.7rem] text-red-600">{{ requiredHint }}</span>
         }
       </label>
     </div>
@@ -54,7 +54,7 @@
         type="text"
         formControlName="company"
         autocomplete="organization"
-        class="rounded-xl border border-muted bg-surface px-4 py-2.5 text-sm text-text outline-none transition-colors focus:border-primary"
+        class="rounded-xl border border-line bg-surface px-4 py-2.5 text-sm text-text outline-none transition-colors focus:border-primary"
       />
     </label>
 
@@ -66,7 +66,7 @@
         <div class="flex flex-wrap gap-2">
           @for (interest of serviceInterests; track interest.id; let i = $index) {
             <label
-              class="inline-flex cursor-pointer items-center gap-2 rounded-full border border-muted bg-surface px-3 py-1.5 text-xs text-text transition-colors hover:border-primary has-[:checked]:border-primary has-[:checked]:text-primary"
+              class="inline-flex cursor-pointer items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-xs text-text transition-colors hover:border-primary has-[:checked]:border-primary has-[:checked]:text-primary"
             >
               <input type="checkbox" class="accent-current h-3 w-3" [formControlName]="i" />
               <span>{{ interest.label }}</span>
@@ -84,12 +84,12 @@
         formControlName="message"
         rows="5"
         [attr.placeholder]="messagePlaceholder"
-        class="resize-y rounded-xl border border-muted bg-surface px-4 py-2.5 text-sm text-text outline-none transition-colors focus:border-primary"
-        [class.border-red-400]="isInvalid('message')"
+        class="resize-y rounded-xl border border-line bg-surface px-4 py-2.5 text-sm text-text outline-none transition-colors focus:border-primary"
+        [class.border-red-500]="isInvalid('message')"
         [attr.aria-invalid]="isInvalid('message')"
       ></textarea>
       @if (isInvalid('message')) {
-        <span class="text-[0.7rem] text-red-400">{{ requiredHint }}</span>
+        <span class="text-[0.7rem] text-red-600">{{ requiredHint }}</span>
       }
     </label>
 
@@ -111,7 +111,7 @@
 
     @if (state === 'handoff') {
       <p
-        class="rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-400"
+        class="rounded-xl border border-emerald-600/30 bg-emerald-600/10 px-4 py-3 text-sm text-emerald-700"
         role="status"
       >
         {{ whatsappHandoffMessage }}
@@ -120,7 +120,7 @@
 
     @if (state === 'success') {
       <p
-        class="rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-400"
+        class="rounded-xl border border-emerald-600/30 bg-emerald-600/10 px-4 py-3 text-sm text-emerald-700"
         role="status"
       >
         {{ successMessage }}
@@ -129,7 +129,7 @@
 
     @if (state === 'error') {
       <p
-        class="rounded-xl border border-red-400/40 bg-red-400/10 px-4 py-3 text-sm text-red-300"
+        class="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-700"
         role="alert"
       >
         {{ errorMessage }}
@@ -157,7 +157,7 @@
           {{ phoneLabel }}
         </p>
         <a
-          class="inline-flex w-fit items-center gap-2 rounded-full border border-muted px-3 py-2 text-xs text-text no-underline transition-colors hover:border-primary hover:text-primary"
+          class="inline-flex w-fit items-center gap-2 rounded-full border border-line px-3 py-2 text-xs text-text no-underline transition-colors hover:border-primary hover:text-primary"
           [href]="phoneLink"
         >
           {{ phone }}

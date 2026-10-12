@@ -11,7 +11,7 @@
 <div class="flex flex-col items-center gap-10">
   @for (project of items; track project) {
     <article
-      class="group w-full max-w-[380px] overflow-hidden rounded-2xl bg-surface border border-muted flex flex-col"
+      class="group w-full max-w-[380px] overflow-hidden rounded-2xl bg-surface border border-line flex flex-col"
     >
       @if (project.coverImage) {
         <a
@@ -57,7 +57,7 @@
               }
             </h3>
             @if (project.status === 'development') {
-              <span class="shrink-0 inline-block border border-muted uppercase text-[0.6rem] tracking-widest px-2 py-1">
+              <span class="shrink-0 inline-block border border-line uppercase text-[0.6rem] tracking-widest px-2 py-1">
                 {{ projectStatusLabel }}
               </span>
             }
@@ -99,7 +99,7 @@
               <ul class="flex flex-wrap gap-2 text-xs text-muted">
                 @for (tech of project.technologies; track tech.name) {
                   <li
-                    class="inline-flex items-center gap-1.5 rounded-full border border-muted bg-surface/60 px-3 py-1 text-[0.7rem]"
+                    class="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface/60 px-3 py-1 text-[0.7rem]"
                   >
                     @if (tech.icon) {
                       <img

@@ -61,6 +61,7 @@ export class App implements OnInit {
     return {
       '--primary-color': theme.primaryColor,
       '--secondary-color': theme.secondaryColor,
+      '--border-color': theme.borderColor,
       '--background-color': theme.backgroundColor,
       '--surface-color': theme.surfaceColor,
       '--text-color': theme.textColor,

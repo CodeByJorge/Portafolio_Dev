@@ -3,9 +3,9 @@
 >
   <div class="flex flex-col gap-4">
     <span
-      class="inline-flex w-fit items-center gap-2 rounded-full bg-emerald-500/15 px-3 py-1 text-[0.7rem] font-medium text-emerald-500"
+      class="inline-flex w-fit items-center gap-2 rounded-full bg-emerald-600/10 px-3 py-1 text-[0.7rem] font-medium text-emerald-700"
     >
-      <span class="h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden="true"></span>
+      <span class="h-1.5 w-1.5 rounded-full bg-emerald-600" aria-hidden="true"></span>
       {{ hero.availability }}
     </span>
 
@@ -27,7 +27,7 @@
 
       @if (hero.secondaryCta) {
         <a
-          class="inline-flex items-center justify-center rounded-full border border-muted px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-text no-underline transition-colors hover:border-primary hover:text-primary"
+          class="inline-flex items-center justify-center rounded-full border border-line px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-text no-underline transition-colors hover:border-primary hover:text-primary"
           [href]="hero.secondaryCta.target"
         >
           {{ hero.secondaryCta.label }}
@@ -59,7 +59,7 @@
       class="flex flex-col items-center gap-3 md:items-end mt-6 md:mt-0 order-first md:order-none"
     >
       <img
-        class="w-36 h-36 rounded-full object-cover border-4 border-muted"
+        class="w-36 h-36 rounded-full object-cover border-4 border-line"
         [src]="hero.avatarUrl"
         [alt]="hero.ownerName"
       />

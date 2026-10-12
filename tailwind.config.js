@@ -10,6 +10,7 @@ module.exports = {
         muted: 'var(--muted-text-color)',
         primary: 'var(--primary-color)',
         secondary: 'var(--secondary-color)',
+        line: 'var(--border-color)',
       },
       fontFamily: {
         sans: 'var(--font-family)',

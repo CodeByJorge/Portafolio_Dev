@@ -14,6 +14,8 @@ export type ResumeLanguage = 'en' | 'fr' | 'es';
 export interface ThemeConfig {
   primaryColor: string;
   secondaryColor: string;
+  /** Hairline colour for borders and dividers; lighter than mutedTextColor. */
+  borderColor: string;
   backgroundColor: string;
   surfaceColor: string;
   textColor: string;
@@ -796,12 +798,13 @@ export const portfolioConfig: PortfolioConfig = {
     ],
   },
   theme: {
-    primaryColor: '#38bdf8',
-    secondaryColor: '#fbbf24',
-    backgroundColor: '#0b1120',
-    surfaceColor: '#111c32',
-    textColor: '#e8edf5',
-    mutedTextColor: '#94a3b8',
+    primaryColor: '#0369a1',
+    secondaryColor: '#b45309',
+    borderColor: '#dfe5ec',
+    backgroundColor: '#ffffff',
+    surfaceColor: '#f6f8fb',
+    textColor: '#0f172a',
+    mutedTextColor: '#5a6b80',
     fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
   },
   locales: {
