@@ -1,0 +1,77 @@
+<h2 class="text-[1.35rem] font-semibold mb-2">
+  {{ title }}
+</h2>
+
+@if (subtitle) {
+  <p class="text-sm text-muted mb-8 max-w-[52ch]">
+    {{ subtitle }}
+  </p>
+}
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+  @for (service of items; track service.id) {
+    <article
+      class="flex flex-col gap-4 rounded-2xl border border-muted bg-surface p-6 transition-colors hover:border-primary"
+    >
+      <header class="flex flex-col gap-2">
+        <h3 class="text-base font-semibold leading-snug">
+          {{ service.title }}
+        </h3>
+        <p class="text-sm text-muted">
+          {{ service.description }}
+        </p>
+      </header>
+
+      @if (service.deliverables.length) {
+        <div class="flex flex-col gap-2">
+          <p class="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-muted">
+            {{ deliverablesLabel }}
+          </p>
+          <ul class="flex flex-col gap-1.5">
+            @for (deliverable of service.deliverables; track deliverable) {
+              <li class="flex items-start gap-2 text-sm text-text">
+                <span class="mt-[0.45rem] h-1 w-1 shrink-0 rounded-full bg-primary" aria-hidden="true"></span>
+                <span>{{ deliverable }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+      }
+
+      <footer class="mt-auto flex flex-wrap items-end justify-between gap-3 pt-2">
+        <div class="flex flex-col">
+          @if (service.priceFrom) {
+            <span class="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-muted">
+              {{ priceFromLabel }}
+            </span>
+            <span class="text-lg font-semibold text-primary">
+              {{ service.priceFrom }}
+            </span>
+          } @else {
+            <span class="text-sm font-semibold text-primary">
+              {{ onRequestLabel }}
+            </span>
+          }
+        </div>
+
+        @if (service.timeline) {
+          <div class="flex flex-col text-right">
+            <span class="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-muted">
+              {{ timelineLabel }}
+            </span>
+            <span class="text-sm text-text">{{ service.timeline }}</span>
+          </div>
+        }
+      </footer>
+
+      @if (ctaLabel) {
+        <a
+          class="inline-flex items-center justify-center rounded-full border border-primary px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary no-underline transition-colors hover:bg-primary hover:text-background"
+          [href]="ctaTarget"
+        >
+          {{ ctaLabel }}
+        </a>
+      }
+    </article>
+  }
+</div>

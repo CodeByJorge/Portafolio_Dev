@@ -1,0 +1,43 @@
+@if (items.length) {
+  <h2 class="text-[1.35rem] font-semibold mb-6">
+    {{ title }}
+  </h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+    @for (testimonial of items; track testimonial.quote) {
+      <figure
+        class="flex flex-col gap-4 rounded-2xl border border-muted bg-surface p-6"
+      >
+        <span class="text-3xl leading-none text-primary" aria-hidden="true">&ldquo;</span>
+
+        <blockquote class="text-sm text-text leading-relaxed">
+          {{ testimonial.quote }}
+        </blockquote>
+
+        <figcaption class="mt-auto flex flex-col gap-0.5 pt-2">
+          <span class="text-sm font-semibold">{{ testimonial.author }}</span>
+
+          @if (testimonial.role || testimonial.company) {
+            <span class="text-xs text-muted">
+              {{ testimonial.role }}@if (testimonial.role && testimonial.company) {<span>, </span>}
+
+              @if (testimonial.company) {
+                @if (testimonial.companyUrl) {
+                  <a
+                    class="text-muted underline decoration-dotted underline-offset-2 hover:text-primary"
+                    [href]="testimonial.companyUrl"
+                    target="_blank"
+                    rel="noreferrer"
+                    >{{ testimonial.company }}</a
+                  >
+                } @else {
+                  <span>{{ testimonial.company }}</span>
+                }
+              }
+            </span>
+          }
+        </figcaption>
+      </figure>
+    }
+  </div>
+}

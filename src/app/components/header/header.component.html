@@ -3,13 +3,13 @@
 >
   <div class="max-w-[960px] mx-auto flex flex-col gap-3">
     <div class="flex items-center justify-between gap-4">
-      <div class="flex flex-col">
-        <span class="font-semibold">{{ hero.name }}</span>
+      <a class="flex flex-col no-underline" href="#hero">
+        <span class="font-semibold text-text">{{ hero.brand }}</span>
         <span class="text-xs sm:text-sm text-muted">{{ hero.role }}</span>
-      </div>
+      </a>
 
       <div class="flex items-center gap-3">
-        <nav class="hidden md:flex gap-3">
+        <nav class="hidden md:flex gap-2">
           @for (item of navigationItems; track item.section) {
             <a
               class="text-sm px-3 py-1 rounded-full text-muted hover:bg-blue-900/50 hover:text-text transition-colors whitespace-nowrap"
@@ -20,22 +20,34 @@
           }
         </nav>
 
-        <button
-          type="button"
-          class="inline-flex items-center gap-2 rounded-full border border-muted px-3 py-1 text-xs uppercase tracking-wide text-muted hover:border-primary hover:text-primary transition-colors"
-          (click)="triggerLanguageChange()"
-          [attr.aria-label]="languageButtonAria"
+        <div
+          class="flex items-center gap-0.5 rounded-full border border-muted p-0.5"
+          role="group"
+          [attr.aria-label]="languageSwitcherAria"
         >
-          {{ languageButtonLabel }}
-        </button>
-
-        <div class="hidden md:block">
-          <span
-            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium text-emerald-500 bg-emerald-500/15"
-          >
-            {{ hero.availability }}
-          </span>
+          @for (language of languages; track language) {
+            <button
+              type="button"
+              class="rounded-full px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wide transition-colors"
+              [class.bg-primary]="language === currentLanguage"
+              [class.text-background]="language === currentLanguage"
+              [class.text-muted]="language !== currentLanguage"
+              [attr.aria-pressed]="language === currentLanguage"
+              (click)="selectLanguage(language)"
+            >
+              {{ languageLabels[language] }}
+            </button>
+          }
         </div>
+
+        @if (contactCtaLabel) {
+          <a
+            class="hidden lg:inline-flex items-center rounded-full bg-primary px-4 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-background no-underline transition-transform hover:-translate-y-px"
+            [href]="contactCtaTarget"
+          >
+            {{ contactCtaLabel }}
+          </a>
+        }
 
         <button
           type="button"
@@ -106,14 +118,15 @@
         </nav>
 
         <div class="flex flex-col gap-3 items-center">
-          <button
-            type="button"
-            class="inline-flex items-center gap-2 rounded-full border border-muted px-3 py-1 text-xs uppercase tracking-wide text-muted hover:border-primary hover:text-primary transition-colors"
-            (click)="triggerLanguageChange()"
-            [attr.aria-label]="languageButtonAria"
-          >
-            {{ languageButtonLabel }}
-          </button>
+          @if (contactCtaLabel) {
+            <a
+              class="inline-flex items-center rounded-full bg-primary px-5 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-background no-underline"
+              [href]="contactCtaTarget"
+              (click)="closeMenu()"
+            >
+              {{ contactCtaLabel }}
+            </a>
+          }
 
           <span
             class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium text-emerald-500 bg-emerald-500/15"

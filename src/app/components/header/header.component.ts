@@ -1,9 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import {
-  HeroConfig,
-  NavigationItem,
-} from '../../config/portfolio.config';
+import { HeroConfig, Language, NavigationItem } from '../../config/portfolio.config';
 
 @Component({
   selector: 'app-header',
@@ -17,9 +14,13 @@ export class HeaderComponent {
   @Input() navigationItems: NavigationItem[] = [];
   @Input() menuOpenLabel = 'Open navigation menu';
   @Input() menuCloseLabel = 'Close navigation menu';
-  @Input() languageButtonLabel = '';
-  @Input() languageButtonAria = '';
-  @Output() languageChange = new EventEmitter<void>();
+  @Input() languages: Language[] = [];
+  @Input() languageLabels: Record<Language, string> = { fr: 'FR', en: 'EN', es: 'ES' };
+  @Input() currentLanguage: Language = 'fr';
+  @Input() languageSwitcherAria = 'Choose language';
+  @Input() contactCtaTarget = '#contact';
+  @Input() contactCtaLabel = '';
+  @Output() languageChange = new EventEmitter<Language>();
 
   isMenuOpen = false;
 
@@ -31,7 +32,9 @@ export class HeaderComponent {
     this.isMenuOpen = false;
   }
 
-  triggerLanguageChange(): void {
-    this.languageChange.emit();
+  selectLanguage(language: Language): void {
+    if (language !== this.currentLanguage) {
+      this.languageChange.emit(language);
+    }
   }
 }

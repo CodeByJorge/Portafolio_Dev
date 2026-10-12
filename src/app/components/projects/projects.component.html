@@ -1,6 +1,12 @@
-<h2 class="text-[1.35rem] font-semibold mb-6">
+<h2 class="text-[1.35rem] font-semibold mb-2">
   {{ title }}
 </h2>
+
+@if (subtitle) {
+  <p class="text-sm text-muted mb-8 max-w-[52ch]">
+    {{ subtitle }}
+  </p>
+}
 
 <div class="flex flex-col items-center gap-10">
   @for (project of items; track project) {
@@ -70,6 +76,24 @@
             <p class="text-sm text-text">
               {{ project.description }}
             </p>
+
+            @if (project.challenge) {
+              <div class="flex flex-col gap-1">
+                <p class="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-muted">
+                  {{ challengeLabel }}
+                </p>
+                <p class="text-sm text-text">{{ project.challenge }}</p>
+              </div>
+            }
+
+            @if (project.outcome) {
+              <div class="flex flex-col gap-1 border-l-2 border-primary pl-3">
+                <p class="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-muted">
+                  {{ outcomeLabel }}
+                </p>
+                <p class="text-sm text-text">{{ project.outcome }}</p>
+              </div>
+            }
 
             @if (project.technologies.length) {
               <ul class="flex flex-wrap gap-2 text-xs text-muted">

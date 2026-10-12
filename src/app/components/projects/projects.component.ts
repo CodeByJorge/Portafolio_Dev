@@ -12,8 +12,11 @@ import { ProjectItem } from '../../config/portfolio.config';
 export class ProjectsComponent {
   @Input() items: ProjectItem[] = [];
   @Input() title = 'Projects';
+  @Input() subtitle = '';
   @Input() viewProjectLabel = 'View project';
   @Input() viewCodeLabel = 'Code';
   @Input() viewDetailsLabel = 'Details';
   @Input() projectStatusLabel = 'In development';
+  @Input() challengeLabel = 'The problem';
+  @Input() outcomeLabel = 'The outcome';
 }

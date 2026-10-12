@@ -5,62 +5,117 @@
   <app-header
     [hero]="localeContent.hero"
     [navigationItems]="localeContent.navigation.items"
-    [languageButtonLabel]="localeCopy.languageButtonLabel"
-    [languageButtonAria]="localeCopy.languageButtonAria"
+    [languages]="config.languages"
+    [languageLabels]="config.languageLabels"
+    [currentLanguage]="currentLanguage"
+    [languageSwitcherAria]="localeCopy.languageSwitcherAria"
+    [contactCtaLabel]="localeCopy.headerCtaLabel"
+    [contactCtaTarget]="localeContent.hero.primaryCta.target"
     [menuOpenLabel]="localeCopy.menuOpenLabel"
     [menuCloseLabel]="localeCopy.menuCloseLabel"
-    (languageChange)="toggleLanguage()"
+    (languageChange)="setLanguage($event)"
   ></app-header>
 
   <main class="max-w-[960px] mx-auto px-6">
     @for (section of sections; track section) {
-      <section
-        [id]="section"
-        class="py-12 border-b border-slate-500/40 last:border-b-0"
-      >
-        @if (section === 'hero') {
-          <app-hero
-            [hero]="localeContent.hero"
-            [socials]="localeContent.socials"
-            [downloadLabel]="localeCopy.downloadCvLabel"
-            [resumes]="localeContent.hero.resumes ?? []"
-            [resumeDropdownLabel]="localeCopy.resumeDropdownLabel"
-          />
-        }
+      @if (isSectionVisible(section)) {
+        <section
+          [id]="section"
+          class="py-12 border-b border-slate-500/40 last:border-b-0 scroll-mt-20"
+        >
+          @if (section === 'hero') {
+            <app-hero
+              [hero]="localeContent.hero"
+              [socials]="localeContent.socials"
+            />
+          }
 
-        @if (section === 'experience') {
-          <app-experience
-            [items]="localeContent.experience"
-            [title]="localeCopy.experienceTitle"
-          />
-        }
+          @if (section === 'services') {
+            <app-services
+              [items]="localeContent.services"
+              [title]="localeCopy.servicesTitle"
+              [subtitle]="localeCopy.servicesSubtitle"
+              [deliverablesLabel]="localeCopy.servicesDeliverablesLabel"
+              [priceFromLabel]="localeCopy.servicesPriceFromLabel"
+              [onRequestLabel]="localeCopy.servicesOnRequestLabel"
+              [timelineLabel]="localeCopy.servicesTimelineLabel"
+              [ctaLabel]="localeContent.hero.primaryCta.label"
+              [ctaTarget]="localeContent.hero.primaryCta.target"
+            />
+          }
 
-        @if (section === 'projects') {
-          <app-projects
-            [items]="localeContent.projects"
-            [title]="localeCopy.projectsTitle"
-            [viewProjectLabel]="localeCopy.viewProject"
-            [viewCodeLabel]="localeCopy.viewCode"
-            [viewDetailsLabel]="localeCopy.viewDetails"
-            [projectStatusLabel]="localeCopy.projectStatusLabel"
-          />
-        }
+          @if (section === 'projects') {
+            <app-projects
+              [items]="localeContent.projects"
+              [title]="localeCopy.projectsTitle"
+              [subtitle]="localeCopy.projectsSubtitle"
+              [viewProjectLabel]="localeCopy.viewProject"
+              [viewCodeLabel]="localeCopy.viewCode"
+              [viewDetailsLabel]="localeCopy.viewDetails"
+              [projectStatusLabel]="localeCopy.projectStatusLabel"
+              [challengeLabel]="localeCopy.projectChallengeLabel"
+              [outcomeLabel]="localeCopy.projectOutcomeLabel"
+            />
+          }
 
-        @if (section === 'about') {
-          <app-about [about]="localeContent.about" />
-        }
+          @if (section === 'process') {
+            <app-process
+              [steps]="localeContent.process"
+              [title]="localeCopy.processTitle"
+              [subtitle]="localeCopy.processSubtitle"
+            />
+          }
 
-        @if (section === 'contact') {
-          <app-contact
-            [contact]="localeContent.contact"
-            [socials]="localeContent.socials"
-            [title]="localeCopy.contactTitle"
-            [emailLabel]="localeCopy.contactEmailLabel"
-            [locationLabel]="localeCopy.contactLocationLabel"
-            [socialsLabel]="localeCopy.contactSocialsLabel"
-          />
-        }
-      </section>
+          @if (section === 'testimonials') {
+            <app-testimonials
+              [items]="localeContent.testimonials"
+              [title]="localeCopy.testimonialsTitle"
+            />
+          }
+
+          @if (section === 'about') {
+            <app-about [about]="localeContent.about" />
+          }
+
+          @if (section === 'experience') {
+            <app-experience
+              [items]="localeContent.experience"
+              [title]="localeCopy.experienceTitle"
+            />
+          }
+
+          @if (section === 'contact') {
+            <app-contact
+              [contact]="localeContent.contact"
+              [socials]="localeContent.socials"
+              [title]="localeCopy.contactTitle"
+              [subtitle]="localeCopy.contactSubtitle"
+              [emailLabel]="localeCopy.contactEmailLabel"
+              [whatsappLabel]="localeCopy.contactWhatsappLabel"
+              [locationLabel]="localeCopy.contactLocationLabel"
+              [socialsLabel]="localeCopy.contactSocialsLabel"
+              [nameLabel]="localeCopy.formNameLabel"
+              [emailFieldLabel]="localeCopy.formEmailLabel"
+              [companyLabel]="localeCopy.formCompanyLabel"
+              [messageLabel]="localeCopy.formMessageLabel"
+              [messagePlaceholder]="localeCopy.formMessagePlaceholder"
+              [interestsLabel]="localeCopy.formInterestsLabel"
+              [submitLabel]="localeCopy.formSubmitLabel"
+              [sendingLabel]="localeCopy.formSendingLabel"
+              [successMessage]="localeCopy.formSuccessMessage"
+              [errorMessage]="localeCopy.formErrorMessage"
+              [requiredHint]="localeCopy.formRequiredHint"
+            />
+          }
+        </section>
+      }
     }
   </main>
+
+  <app-footer
+    [brand]="localeContent.hero.brand"
+    [footer]="localeContent.footer"
+    [socials]="localeContent.socials"
+    [resumes]="localeContent.hero.resumes ?? []"
+  />
 </div>

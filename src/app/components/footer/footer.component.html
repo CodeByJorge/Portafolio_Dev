@@ -1,0 +1,52 @@
+<footer class="border-t border-slate-500/40 mt-4">
+  <div
+    class="max-w-[960px] mx-auto px-6 py-10 flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between"
+  >
+    <div class="flex flex-col gap-3">
+      <span class="text-sm font-semibold">{{ brand }}</span>
+
+      @if (socials.length) {
+        <div class="flex flex-wrap gap-3">
+          @for (social of socials; track social.id) {
+            <a
+              class="inline-flex items-center gap-2 text-xs text-muted no-underline transition-colors hover:text-primary"
+              [href]="social.url"
+              target="_blank"
+              rel="noreferrer"
+            >
+              @if (getSocialIcon(social.id); as socialIcon) {
+                <img class="h-4 w-4" [src]="socialIcon" [alt]="social.label + ' icon'" />
+              }
+              <span>{{ social.label }}</span>
+            </a>
+          }
+        </div>
+      }
+
+      <p class="text-[0.7rem] text-muted">
+        &copy; {{ currentYear }} {{ brand }}. {{ footer.rights }}
+      </p>
+    </div>
+
+    @if (resumes.length) {
+      <div class="flex flex-col gap-2 sm:items-end">
+        <p class="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-muted">
+          {{ footer.resumeLabel }}
+        </p>
+        <div class="flex flex-wrap gap-2 sm:justify-end">
+          @for (resume of resumes; track resume.url) {
+            <a
+              class="inline-flex items-center rounded-full border border-muted px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-muted no-underline transition-colors hover:border-primary hover:text-primary"
+              [href]="resume.url"
+              target="_blank"
+              rel="noreferrer"
+              download
+            >
+              {{ resume.language }}
+            </a>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</footer>

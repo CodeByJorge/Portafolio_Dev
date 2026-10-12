@@ -4,9 +4,13 @@ import { Title } from '@angular/platform-browser';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ExperienceComponent } from './components/experience/experience.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HeroComponent } from './components/hero/hero.component';
+import { ProcessComponent } from './components/process/process.component';
 import { ProjectsComponent } from './components/projects/projects.component';
+import { ServicesComponent } from './components/services/services.component';
+import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 import {
   Language,
   LocaleCopy,
@@ -15,6 +19,8 @@ import {
   portfolioConfig,
 } from './config/portfolio.config';
 
+const LANGUAGE_STORAGE_KEY = 'jgdev.language';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -22,10 +28,14 @@ import {
     CommonModule,
     HeaderComponent,
     HeroComponent,
-    ExperienceComponent,
+    ServicesComponent,
     ProjectsComponent,
+    ProcessComponent,
+    TestimonialsComponent,
     AboutComponent,
+    ExperienceComponent,
     ContactComponent,
+    FooterComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',
@@ -40,6 +50,7 @@ export class App implements OnInit {
   constructor(private title: Title) {}
 
   ngOnInit(): void {
+    this.currentLanguage = this.resolveInitialLanguage();
     this.updateTitle();
   }
 
@@ -64,9 +75,44 @@ export class App implements OnInit {
     return this.config.copy[this.currentLanguage];
   }
 
-  protected toggleLanguage(): void {
-    this.currentLanguage = this.currentLanguage === 'en' ? 'fr' : 'en';
+  /** Sections with no content are skipped so the page never shows an empty heading. */
+  protected isSectionVisible(section: string): boolean {
+    if (section === 'testimonials') {
+      return this.localeContent.testimonials.length > 0;
+    }
+    return true;
+  }
+
+  protected setLanguage(language: Language): void {
+    this.currentLanguage = language;
     this.updateTitle();
+
+    try {
+      localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+    } catch {
+      // Private browsing or blocked storage: the choice simply lasts this visit.
+    }
+  }
+
+  private resolveInitialLanguage(): Language {
+    const stored = this.readStoredLanguage();
+    if (stored) {
+      return stored;
+    }
+
+    const browserLanguage = navigator.language?.slice(0, 2).toLowerCase();
+    const supported = this.config.languages.find((lang) => lang === browserLanguage);
+
+    return supported ?? this.config.defaultLanguage;
+  }
+
+  private readStoredLanguage(): Language | null {
+    try {
+      const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+      return this.config.languages.find((lang) => lang === stored) ?? null;
+    } catch {
+      return null;
+    }
   }
 
   private updateTitle(): void {

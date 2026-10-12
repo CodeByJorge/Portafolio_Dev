@@ -1,59 +1,191 @@
-<h2 class="text-[1.35rem] font-semibold mb-6">
+<h2 class="text-[1.35rem] font-semibold mb-2">
   {{ title }}
 </h2>
 
-<div class="grid grid-cols-1 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] gap-6">
-  <div>
-    <p class="text-xs font-semibold uppercase tracking-[0.08em] text-muted mb-1">
-      {{ emailLabel }}
-    </p>
-    <a
-      class="inline-flex items-center gap-2 px-3 py-2 rounded-full border border-primary text-text text-xs no-underline"
-      [href]="'mailto:' + contact.email"
-    >
-      <img
-        src="/icons/gmail.svg"
-        alt="Icono de email"
-        class="h-4 w-4"
-      />
-      <span>{{ contact.email }}</span>
-    </a>
+@if (subtitle) {
+  <p class="text-sm text-muted mb-8 max-w-[52ch]">
+    {{ subtitle }}
+  </p>
+}
 
-    @if (contact.location) {
+<div class="grid grid-cols-1 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] gap-8">
+  <form class="flex flex-col gap-4" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <label class="flex flex-col gap-1.5">
+        <span class="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-muted">
+          {{ nameLabel }} *
+        </span>
+        <input
+          type="text"
+          formControlName="name"
+          autocomplete="name"
+          class="rounded-xl border border-muted bg-surface px-4 py-2.5 text-sm text-text outline-none transition-colors focus:border-primary"
+          [class.border-red-400]="isInvalid('name')"
+          [attr.aria-invalid]="isInvalid('name')"
+        />
+        @if (isInvalid('name')) {
+          <span class="text-[0.7rem] text-red-400">{{ requiredHint }}</span>
+        }
+      </label>
+
+      <label class="flex flex-col gap-1.5">
+        <span class="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-muted">
+          {{ emailFieldLabel }} *
+        </span>
+        <input
+          type="email"
+          formControlName="email"
+          autocomplete="email"
+          class="rounded-xl border border-muted bg-surface px-4 py-2.5 text-sm text-text outline-none transition-colors focus:border-primary"
+          [class.border-red-400]="isInvalid('email')"
+          [attr.aria-invalid]="isInvalid('email')"
+        />
+        @if (isInvalid('email')) {
+          <span class="text-[0.7rem] text-red-400">{{ requiredHint }}</span>
+        }
+      </label>
+    </div>
+
+    <label class="flex flex-col gap-1.5">
+      <span class="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-muted">
+        {{ companyLabel }}
+      </span>
+      <input
+        type="text"
+        formControlName="company"
+        autocomplete="organization"
+        class="rounded-xl border border-muted bg-surface px-4 py-2.5 text-sm text-text outline-none transition-colors focus:border-primary"
+      />
+    </label>
+
+    @if (serviceInterests.length) {
+      <fieldset class="flex flex-col gap-2" formArrayName="interests">
+        <legend class="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-muted mb-1">
+          {{ interestsLabel }}
+        </legend>
+        <div class="flex flex-wrap gap-2">
+          @for (interest of serviceInterests; track interest.id; let i = $index) {
+            <label
+              class="inline-flex cursor-pointer items-center gap-2 rounded-full border border-muted bg-surface px-3 py-1.5 text-xs text-text transition-colors hover:border-primary has-[:checked]:border-primary has-[:checked]:text-primary"
+            >
+              <input type="checkbox" class="accent-current h-3 w-3" [formControlName]="i" />
+              <span>{{ interest.label }}</span>
+            </label>
+          }
+        </div>
+      </fieldset>
+    }
+
+    <label class="flex flex-col gap-1.5">
+      <span class="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-muted">
+        {{ messageLabel }} *
+      </span>
+      <textarea
+        formControlName="message"
+        rows="5"
+        [attr.placeholder]="messagePlaceholder"
+        class="resize-y rounded-xl border border-muted bg-surface px-4 py-2.5 text-sm text-text outline-none transition-colors focus:border-primary"
+        [class.border-red-400]="isInvalid('message')"
+        [attr.aria-invalid]="isInvalid('message')"
+      ></textarea>
+      @if (isInvalid('message')) {
+        <span class="text-[0.7rem] text-red-400">{{ requiredHint }}</span>
+      }
+    </label>
+
+    <!-- Honeypot: visually and semantically hidden from people, visible to bots. -->
+    <div class="absolute left-[-9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+      <label>
+        Website
+        <input type="text" formControlName="website" tabindex="-1" autocomplete="off" />
+      </label>
+    </div>
+
+    <button
+      type="submit"
+      class="inline-flex w-fit items-center justify-center rounded-full bg-primary px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-background transition-transform hover:-translate-y-px disabled:cursor-not-allowed disabled:opacity-60"
+      [disabled]="state === 'sending'"
+    >
+      {{ state === 'sending' ? sendingLabel : submitLabel }}
+    </button>
+
+    @if (state === 'success') {
       <p
-        class="mt-4 text-xs font-semibold uppercase tracking-[0.08em] text-muted mb-1"
+        class="rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-400"
+        role="status"
       >
-        {{ locationLabel }}
-      </p>
-      <p class="text-[0.95rem] text-text">
-        {{ contact.location }}
+        {{ successMessage }}
       </p>
     }
-  </div>
 
-  @if (socials.length) {
-    <div class="flex flex-col gap-2">
-      <p class="text-xs font-semibold uppercase tracking-[0.08em] text-muted mb-1">
-        {{ socialsLabel }}
+    @if (state === 'error') {
+      <p
+        class="rounded-xl border border-red-400/40 bg-red-400/10 px-4 py-3 text-sm text-red-300"
+        role="alert"
+      >
+        {{ errorMessage }}
       </p>
+    }
+  </form>
 
-      @for (social of socials; track social) {
+  <aside class="flex flex-col gap-5">
+    <div class="flex flex-col gap-2">
+      <p class="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-muted">
+        {{ emailLabel }}
+      </p>
+      <a
+        class="inline-flex w-fit items-center gap-2 rounded-full border border-primary px-3 py-2 text-xs text-text no-underline"
+        [href]="'mailto:' + contact.email"
+      >
+        <img src="/icons/gmail.svg" alt="" class="h-4 w-4" />
+        <span>{{ contact.email }}</span>
+      </a>
+    </div>
+
+    @if (whatsappLink) {
+      <div class="flex flex-col gap-2">
+        <p class="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-muted">
+          {{ whatsappLabel }}
+        </p>
         <a
-          class="inline-flex items-center gap-2 text-xs text-text no-underline hover:text-primary"
-          [href]="social.url"
+          class="inline-flex w-fit items-center gap-2 rounded-full border border-emerald-500/60 px-3 py-2 text-xs text-emerald-400 no-underline transition-colors hover:bg-emerald-500/10"
+          [href]="whatsappLink"
           target="_blank"
           rel="noreferrer"
         >
-          @if (getSocialIcon(social.id); as socialIcon) {
-            <img
-              class="h-4 w-4"
-              [src]="socialIcon"
-              [alt]="social.label + ' icono'"
-            />
-          }
-          <span>{{ social.label }}</span>
+          {{ whatsappLabel }}
         </a>
-      }
-    </div>
-  }
+      </div>
+    }
+
+    @if (contact.location) {
+      <div class="flex flex-col gap-1">
+        <p class="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-muted">
+          {{ locationLabel }}
+        </p>
+        <p class="text-sm text-text">{{ contact.location }}</p>
+      </div>
+    }
+
+    @if (socials.length) {
+      <div class="flex flex-col gap-2">
+        <p class="text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-muted">
+          {{ socialsLabel }}
+        </p>
+        @for (social of socials; track social.id) {
+          <a
+            class="inline-flex items-center gap-2 text-xs text-text no-underline hover:text-primary"
+            [href]="social.url"
+            target="_blank"
+            rel="noreferrer"
+          >
+            @if (getSocialIcon(social.id); as socialIcon) {
+              <img class="h-4 w-4" [src]="socialIcon" [alt]="social.label + ' icon'" />
+            }
+            <span>{{ social.label }}</span>
+          </a>
+        }
+      </div>
+    }
+  </aside>
 </div>
