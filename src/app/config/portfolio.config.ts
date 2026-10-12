@@ -239,8 +239,8 @@ const CONTACT_EMAIL = 'gjorgeyariel@gmail.com';
 const GITHUB_URL = 'https://github.com/CodeByJorge';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/jorge-garc%C3%ADa-826474217/';
 
-/** TODO: replace with the real number in international format (e.g. 41791234567). */
-const WHATSAPP_NUMBER = '';
+/** International format, digits only — the wa.me link is built from this. */
+const WHATSAPP_NUMBER = '34634221314';
 
 /** TODO: paste the Web3Forms / Formspree endpoint here to activate the form. */
 const FORM_ENDPOINT = '';

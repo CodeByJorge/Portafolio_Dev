@@ -73,8 +73,18 @@ export class ContactComponent {
   }
 
   protected get whatsappLink(): string | null {
-    const number = this.contactConfig?.whatsapp?.replace(/\D/g, '');
+    const number = this.whatsappDigits;
     return number ? `https://wa.me/${number}` : null;
+  }
+
+  /** Shown next to the link so the number is visible before anyone clicks. */
+  protected get whatsappDisplay(): string {
+    const number = this.whatsappDigits;
+    return number ? `+${number}` : '';
+  }
+
+  private get whatsappDigits(): string {
+    return this.contactConfig?.whatsapp?.replace(/\D/g, '') ?? '';
   }
 
   protected isInvalid(controlName: 'name' | 'email' | 'message'): boolean {
