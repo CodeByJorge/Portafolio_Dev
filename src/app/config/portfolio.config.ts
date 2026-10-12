@@ -254,7 +254,7 @@ const sharedTechnologies: Technology[] = [
   { name: 'Tailwind CSS', icon: '/icons/tailwind.svg' },
 ];
 
-const freelanceTechnologies: Technology[] = [
+const independentTechnologies: Technology[] = [
   { name: 'React', icon: '/icons/react.svg' },
   { name: 'Spring Boot', icon: '/icons/springboot.svg' },
   { name: 'MySQL', icon: '/icons/mysql.svg' },
@@ -283,10 +283,24 @@ const ecommerceTechnologies: Technology[] = [
 
 const frenchExperience: ExperienceItem[] = [
   {
+    company: 'JGdev Studio',
+    role: 'Développeur web indépendant',
+    startDate: 'Fév 2026',
+    endDate: 'Présent',
+    description: `
+      Développement d'une solution e-commerce complète avec interface client et tableau de bord administrateur sécurisé pour la
+      gestion des stocks et des commandes.
+      Implémentation de la logique métier backend avec Spring Boot et Hibernate, garantissant des transactions sécurisées et des
+      endpoints API robustes (testés via Postman).
+      Conteneurisation de l'application avec Docker et conception UI/UX sur Figma.
+    `,
+    technologies: independentTechnologies,
+  },
+  {
     company: 'CodeArts Solution S.L.',
     role: 'Développeur Fullstack',
     startDate: 'Fév 2025',
-    endDate: 'Présent',
+    endDate: 'Fév 2026',
     location: 'Télétravail (Huelva, Espagne)',
     description: `
       Développement et déploiement d'applications web B2B : une plateforme de gestion d'événements (sports & arts) et un
@@ -300,28 +314,26 @@ const frenchExperience: ExperienceItem[] = [
     `,
     technologies: sharedTechnologies,
   },
-  {
-    company: 'Indépendant',
-    role: 'Développeur Freelance',
-    startDate: 'Sep 2024',
-    endDate: 'Jan 2025',
-    description: `
-      Développement d'une solution e-commerce complète avec interface client et tableau de bord administrateur sécurisé pour la
-      gestion des stocks et des commandes.
-      Implémentation de la logique métier backend avec Spring Boot et Hibernate, garantissant des transactions sécurisées et des
-      endpoints API robustes (testés via Postman).
-      Conteneurisation de l'application avec Docker et conception UI/UX sur Figma.
-    `,
-    technologies: freelanceTechnologies,
-  },
 ];
 
 const englishExperience: ExperienceItem[] = [
   {
+    company: 'JGdev Studio',
+    role: 'Independent web developer',
+    startDate: 'Feb 2026',
+    endDate: 'Present',
+    description: `
+      Development of a complete e-commerce solution with client interface and secure admin dashboard for stock and order management.
+      Implementation of backend business logic with Spring Boot and Hibernate, ensuring secure transactions and robust API endpoints (tested via Postman).
+      Application containerization with Docker and UI/UX design on Figma.
+    `,
+    technologies: independentTechnologies,
+  },
+  {
     company: 'CodeArts Solution S.L.',
     role: 'Fullstack Developer',
     startDate: 'Feb 2025',
-    endDate: 'Present',
+    endDate: 'Feb 2026',
     location: 'Remote (Huelva, Spain)',
     description: `
       Development and deployment of B2B web applications: an event management platform (sports & arts) and a
@@ -334,26 +346,28 @@ const englishExperience: ExperienceItem[] = [
     `,
     technologies: sharedTechnologies,
   },
-  {
-    company: 'Self-employed',
-    role: 'Freelance Developer',
-    startDate: 'Sep 2024',
-    endDate: 'Jan 2025',
-    description: `
-      Development of a complete e-commerce solution with client interface and secure admin dashboard for stock and order management.
-      Implementation of backend business logic with Spring Boot and Hibernate, ensuring secure transactions and robust API endpoints (tested via Postman).
-      Application containerization with Docker and UI/UX design on Figma.
-    `,
-    technologies: freelanceTechnologies,
-  },
 ];
 
 const spanishExperience: ExperienceItem[] = [
   {
+    company: 'JGdev Studio',
+    role: 'Desarrollador web independiente',
+    startDate: 'Feb 2026',
+    endDate: 'Actualidad',
+    description: `
+      Desarrollo de una solución e-commerce completa con interfaz de cliente y panel de administración seguro para la
+      gestión de stock y pedidos.
+      Implementación de la lógica de negocio backend con Spring Boot e Hibernate, garantizando transacciones seguras y
+      endpoints de API robustos (probados con Postman).
+      Contenedorización de la aplicación con Docker y diseño UI/UX en Figma.
+    `,
+    technologies: independentTechnologies,
+  },
+  {
     company: 'CodeArts Solution S.L.',
     role: 'Desarrollador Fullstack',
     startDate: 'Feb 2025',
-    endDate: 'Actualidad',
+    endDate: 'Feb 2026',
     location: 'Remoto (Huelva, España)',
     description: `
       Desarrollo y despliegue de aplicaciones web B2B: una plataforma de gestión de eventos (deporte y artes) y un
@@ -365,20 +379,6 @@ const spanishExperience: ExperienceItem[] = [
       Control de versiones y colaboración en equipo con Git/GitHub en entorno Agile/Scrum.
     `,
     technologies: sharedTechnologies,
-  },
-  {
-    company: 'Autónomo',
-    role: 'Desarrollador Freelance',
-    startDate: 'Sep 2024',
-    endDate: 'Ene 2025',
-    description: `
-      Desarrollo de una solución e-commerce completa con interfaz de cliente y panel de administración seguro para la
-      gestión de stock y pedidos.
-      Implementación de la lógica de negocio backend con Spring Boot e Hibernate, garantizando transacciones seguras y
-      endpoints de API robustos (probados con Postman).
-      Contenedorización de la aplicación con Docker y diseño UI/UX en Figma.
-    `,
-    technologies: freelanceTechnologies,
   },
 ];
 
